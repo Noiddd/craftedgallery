@@ -4,19 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [email, setEmail] = useState("");
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const categories = [
-    { id: "all", label: "All", count: null },
-    { id: "new", label: "New", count: null },
-    { id: "picks", label: "Picks", count: null },
-    { id: "tech", label: "Tech", count: 116 },
-    { id: "workspace", label: "Workspace", count: 135 },
-    { id: "home", label: "Home", count: 69 },
-    { id: "carry", label: "Carry", count: 85 },
-    { id: "books", label: "Books", count: 31 },
-    { id: "lifestyle", label: "Lifestyle", count: 21 },
-  ];
+  const [selectedFilter, setSelectedFilter] = useState("All");
 
   // Placeholder craft items - you can replace this with actual data later
   const craftItems = [
@@ -82,8 +70,16 @@ export default function Home() {
     console.log("Subscribing:", email);
   };
 
+  // Filter items based on selected category
+  const filteredItems =
+    selectedFilter === "All"
+      ? craftItems
+      : craftItems.filter((item) => item.category === selectedFilter);
+
+  const categories = ["All", "Home", "Carry", "Tech"];
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#f8f8f8]">
       {/* Navigation */}
       <nav>
         <div className="max-w-7xl mx-auto px-6 py-6">
@@ -92,7 +88,7 @@ export default function Home() {
             <div className="shrink-0">
               <div className="w-8 h-8 flex items-center justify-center">
                 <svg
-                  className="w-6 h-6 text-gray-900"
+                  className="w-6 h-6 text-black"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -109,22 +105,22 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-8">
               <a
                 href="#"
-                className="text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors"
+                className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
               >
                 Explore
               </a>
               <a
                 href="#"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
               >
                 Blog
               </a>
             </div>
 
             {/* Search Icon */}
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+            <button className="p-2 hover:bg-gray-200 rounded-full transition-colors">
               <svg
-                className="w-5 h-5 text-gray-600"
+                className="w-5 h-5 text-black"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -142,10 +138,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 pt-8 pb-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-cormorant font-medium text-gray-900 mb-4 leading-tight tracking-tight">
+      <section className="max-w-4xl mx-auto px-6 pt-8 pb-12 text-center">
+        <h1 className="text-4xl md:text-5xl font-cormorant font-medium text-black mb-4 leading-tight tracking-tight">
           A Curated Gallery of the <br />
-          World’s Finest Craft{" "}
+          World's Finest Craft{" "}
         </h1>
         <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
           Explore exceptional craft from around the world. Delivered weekly.
@@ -159,12 +155,12 @@ export default function Home() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="email"
-              className="w-full px-4 py-3 pr-32 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+              className="w-full px-4 py-3 pr-32 bg-white border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm"
               required
             />
             <button
               type="submit"
-              className="absolute right-1 top-1 bottom-1 px-6 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium"
+              className="absolute right-1 top-1 bottom-1 px-6 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium"
             >
               Subscribe
             </button>
@@ -172,56 +168,15 @@ export default function Home() {
         </form>
       </section>
 
-      {/* Category Filters */}
-      <section className="max-w-7xl mx-auto px-6 pb-2">
-        <div className="flex items-center gap-3 overflow-x-auto pb-2">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                activeCategory === category.id
-                  ? "bg-gray-900 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              <span className="text-sm font-medium">{category.label}</span>
-              {category.count && (
-                <span className="text-xs opacity-75">{category.count}</span>
-              )}
-            </button>
-          ))}
-          <button className="text-sm font-medium text-gray-600 hover:text-gray-900 px-4 py-2 whitespace-nowrap">
-            See More
-          </button>
-        </div>
-      </section>
-
       {/* Craft Items Grid */}
-      <section className="max-w-7xl mx-auto px-6  pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {craftItems.map((item) => (
+      <section className="max-w-7xl mx-auto px-6 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+              className="group cursor-pointer bg-white border border-gray-200 rounded-2xl overflow-hidden"
             >
-              <div className="relative aspect-square bg-gray-100 flex items-center justify-center">
-                {/* External link icon */}
-                <div className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
-                  <svg
-                    className="w-4 h-4 text-gray-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </div>
+              <div className="relative aspect-square bg-white flex items-center justify-center">
                 {/* Placeholder for image */}
                 <span className="text-gray-400 text-sm">Image placeholder</span>
               </div>
@@ -231,11 +186,11 @@ export default function Home() {
                     <p className="text-xs text-gray-500 mb-1">
                       {item.maker} · {item.category}
                     </p>
-                    <h3 className="text-sm font-medium text-gray-900">
+                    <h3 className="text-sm font-medium text-black">
                       {item.name}
                     </h3>
                   </div>
-                  <p className="text-sm font-medium text-gray-900 ml-4">
+                  <p className="text-sm font-medium text-black ml-4">
                     ${item.price}
                   </p>
                 </div>
@@ -250,6 +205,25 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Floating Filter Bar */}
+      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-6">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/30 rounded-full shadow-lg px-2 py-2 flex items-center gap-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedFilter(category)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                selectedFilter === category
+                  ? "bg-black text-white"
+                  : "text-gray-900 hover:bg-white/30"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
