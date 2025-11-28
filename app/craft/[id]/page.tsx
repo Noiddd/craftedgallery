@@ -176,50 +176,49 @@ export default function CraftDetail() {
     <div className="min-h-screen bg-[#f8f8f8]">
       {/* Hero Section */}
       <section className="max-w-[1800px] mx-auto px-2 pt-8">
-        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-          <div className="px-6 py-8">
-            {/* Header */}
-            <div className="flex items-start justify-between mb-8">
-              <div>
-                <p className="text-sm text-gray-500 mb-2">
-                  {craft.maker} · {craft.category}
-                </p>
-                <h1 className="text-4xl md:text-5xl font-cormorant font-medium text-black mb-3 tracking-tight">
-                  {craft.name}
-                </h1>
-                <p className="text-base text-gray-600">{craft.tagline}</p>
-                {craft.isStaffPick && (
-                  <div className="flex items-center gap-1.5 text-sm text-amber-600 mt-3">
-                    <span>⭐</span>
-                    <span className="font-medium">Staff Pick</span>
-                  </div>
-                )}
+        {/* Header */}
+        <div className="flex items-start justify-between mb-8">
+          <div>
+            <p className="text-sm text-gray-500 mb-2">
+              {craft.maker} · {craft.category}
+            </p>
+            <h1 className="text-4xl md:text-5xl font-cormorant font-medium text-black mb-3 tracking-tight">
+              {craft.name}
+            </h1>
+            <p className="text-base text-gray-600">{craft.tagline}</p>
+            {craft.isStaffPick && (
+              <div className="flex items-center gap-1.5 text-sm text-amber-600 mt-3">
+                <span>⭐</span>
+                <span className="font-medium">Staff Pick</span>
               </div>
-              <div className="flex items-center gap-4">
-                <p className="text-3xl font-medium text-black">${craft.price}</p>
-                <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-2">
-                  Purchase Link
-                  <ExternalLink className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
+            )}
+          </div>
+          <div className="flex items-center gap-4">
+            <p className="text-3xl font-medium text-black">${craft.price}</p>
+            <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-2">
+              Purchase Link
+              <ExternalLink className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
 
-            {/* Hero Image */}
-            <div className="w-full aspect-[16/9] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center">
-              <span className="text-gray-400 text-sm">
-                High-resolution product image
-              </span>
-            </div>
+        {/* Hero Image */}
+        <div
+          className="bg-white rounded-2xl overflow-hidden"
+          style={{ boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)' }}
+        >
+          <div className="w-full aspect-[16/9] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+            <span className="text-gray-400 text-sm">
+              High-resolution product image
+            </span>
           </div>
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="max-w-[1800px] mx-auto px-2 py-6 pb-32">
-        <div className="bg-white rounded-2xl border border-gray-200 px-6 py-12">
-          <div className="max-w-4xl mx-auto">
-            {renderContent()}
-          </div>
+      <section className="max-w-[1800px] mx-auto px-2 py-12 pb-32">
+        <div className="max-w-4xl mx-auto">
+          {renderContent()}
         </div>
       </section>
 

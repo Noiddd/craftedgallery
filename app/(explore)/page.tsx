@@ -119,7 +119,8 @@ export default function Home() {
             <Link
               key={item.id}
               href={`/craft/${item.id}`}
-              className="group cursor-pointer bg-white border border-gray-200 rounded-2xl overflow-hidden"
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden"
+              style={{ boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)' }}
             >
               <div className="relative aspect-square bg-white flex items-center justify-center">
                 {/* Placeholder for image */}
