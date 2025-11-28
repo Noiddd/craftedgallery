@@ -1,8 +1,9 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export default function CraftDetail() {
   const params = useParams();
@@ -10,174 +11,108 @@ export default function CraftDetail() {
   const id = params.id as string;
   const [selectedSection, setSelectedSection] = useState("Overview");
 
+  const scrollToSection = (section: string) => {
+    setSelectedSection(section);
+    const element = document.getElementById(section.toLowerCase());
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -20% 0px",
+      threshold: [0, 0.1, 0.5],
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          if (id === "overview") {
+            setSelectedSection("Overview");
+          } else if (id === "story") {
+            setSelectedSection("Story");
+          } else if (id === "others") {
+            setSelectedSection("Others");
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const overviewSection = document.getElementById("overview");
+    const storySection = document.getElementById("story");
+    const othersSection = document.getElementById("others");
+
+    if (overviewSection) observer.observe(overviewSection);
+    if (storySection) observer.observe(storySection);
+    if (othersSection) observer.observe(othersSection);
+
+    return () => {
+      if (overviewSection) observer.unobserve(overviewSection);
+      if (storySection) observer.unobserve(storySection);
+      if (othersSection) observer.unobserve(othersSection);
+    };
+  }, []);
+
   // Dummy data for the craft item
   const craft = {
     id: parseInt(id),
-    name: "Japanese Steel Chef Knife",
-    maker: "Takamura Hamono",
-    category: "Kitchen",
-    price: 245,
-    tagline: "67 layers of Damascus steel, hand-forged in Echizen",
+    name: "Speedmaster Professional",
+    maker: "Omega",
+    category: "Timepiece",
+    price: 6950,
+    tagline: "The only watch certified by NASA for EVA missions",
     description:
-      "This chef knife represents the pinnacle of Japanese blade craftsmanship. Each knife is hand-forged by master bladesmiths in Echizen, Japan, using techniques passed down through generations. The 67-layer Damascus steel creates a stunning pattern while providing exceptional edge retention and cutting performance.",
+      "The Speedmaster Professional is the only timepiece certified by NASA for extravehicular activity. After surviving brutal qualification tests that destroyed every competing watch—heating to 93°C, cooling to -18°C, extreme pressure changes, and violent impacts—it earned its place on every crewed space mission since 1965.",
     longDescription:
-      "The blade is forged from VG-10 stainless steel core, wrapped in 66 layers of softer stainless steel. This creates the distinctive Damascus pattern while maintaining a razor-sharp edge. The blade is then hand-sharpened to a 15-degree angle, providing superior cutting precision. The handle is crafted from aged Pakkawood, shaped and balanced for hours of comfortable use.",
+      "While other manufacturers pursued automation and modern materials, Omega made deliberate choices for mission-critical reliability. The manual-wind movement operates flawlessly in temperature extremes where automatics fail. The Hesalite crystal was chosen over scratch-resistant sapphire because it shatters into rounded pieces instead of dangerous shards in zero gravity. Even the chronograph pusher resistance was precisely calculated to function with pressurized EVA gloves.",
     craftedWith: [
       {
-        title: "Hand-Forged Damascus Steel",
+        title: "NASA-Qualified Engineering",
         description:
-          "67 layers of steel are meticulously folded and hammered to create a blade that's both beautiful and exceptionally strong. The Damascus pattern is unique to each knife.",
+          "The only watch certified for EVA use after surviving tests that destroyed competitors. Heating to 93°C, cooling to -18°C, pressure changes, impacts—it passed qualification that broke every other timepiece.",
       },
       {
-        title: "Traditional Echizen Craftsmanship",
+        title: "Mission-Critical Material Choices",
         description:
-          "Made in Echizen, Japan's historic blade-making center with over 700 years of tradition. Each knife takes weeks to complete, involving multiple master craftspeople.",
+          "Hesalite crystal chosen over sapphire because it shatters instead of splintering in zero gravity. Every material decision prioritizes astronaut safety over conventional luxury.",
       },
       {
-        title: "Precision Edge Geometry",
+        title: "Manual Wind Reliability",
         description:
-          "Hand-sharpened to a 15-degree angle on each side, providing a razor-sharp edge that maintains its keenness through years of use with proper care.",
+          "Manual wind movement when automatics were dominant. More reliable in temperature extremes where automatic mechanisms fail. Proven through decades of space missions.",
       },
       {
-        title: "Ergonomic Balance",
+        title: "Unchanged Since 1968",
         description:
-          "The blade weight is precisely balanced with the aged Pakkawood handle, reducing hand fatigue during extended use. Every detail is considered.",
+          "Core design unchanged since 1968 because it achieved mission-critical specifications. Why redesign perfection? The chronograph pusher resistance even works with pressurized gloves.",
       },
     ],
     specs: {
-      "Blade Length": '8.5"',
-      "Total Length": '13.5"',
-      "Blade Material": "VG-10 Damascus Steel",
-      "Handle Material": "Aged Pakkawood",
-      Weight: "7.2 oz",
-      Origin: "Echizen, Japan",
+      "Case Diameter": "42mm",
+      "Case Material": "Stainless Steel",
+      Movement: "Manual Wind Caliber 1861",
+      Crystal: "Hesalite (DON 011)",
+      "Water Resistance": "50m",
+      "First Worn in Space": "1962",
     },
     isStaffPick: true,
-  };
-
-  const renderContent = () => {
-    switch (selectedSection) {
-      case "Overview":
-        return (
-          <div className="space-y-12">
-            {/* Description */}
-            <section>
-              <h2 className="text-2xl font-cormorant font-medium text-black mb-4">
-                About This Craft
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                {craft.description}
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed">
-                {craft.longDescription}
-              </p>
-            </section>
-
-            {/* Crafted With Obsession */}
-            <section>
-              <h2 className="text-2xl font-cormorant font-medium text-black mb-6">
-                Crafted With Obsession
-              </h2>
-              <div className="space-y-6">
-                {craft.craftedWith.map((item, index) => (
-                  <div
-                    key={index}
-                    className="border-l-2 border-black pl-6 py-2"
-                  >
-                    <h3 className="text-lg font-medium text-black mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Specifications */}
-            <section>
-              <h2 className="text-2xl font-cormorant font-medium text-black mb-6">
-                Specifications
-              </h2>
-              <dl className="grid grid-cols-2 gap-x-8 gap-y-4">
-                {Object.entries(craft.specs).map(([key, value]) => (
-                  <div key={key}>
-                    <dt className="text-xs text-gray-500 mb-1">{key}</dt>
-                    <dd className="text-sm text-black font-medium">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
-          </div>
-        );
-      case "Story":
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-cormorant font-medium text-black mb-4">
-              The Maker's Story
-            </h2>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Takamura Hamono has been crafting exceptional blades in Echizen
-              since 1947. The workshop is located in the historic blade-making
-              district, where the craft has been perfected over 700 years.
-            </p>
-            <p className="text-base text-gray-700 leading-relaxed">
-              Each knife is a collaboration between multiple master craftspeople
-              - the blacksmith who forges the blade, the sharpener who creates
-              the edge, and the handle maker who crafts the grip. This tradition
-              of specialization ensures that every aspect of the knife is
-              executed with expertise.
-            </p>
-          </div>
-        );
-      case "Care":
-        return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-cormorant font-medium text-black mb-4">
-              Care Instructions
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-medium text-black mb-2">
-                  Daily Care
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Hand wash immediately after use with mild soap and warm water.
-                  Dry thoroughly with a soft cloth. Never put in the dishwasher.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-black mb-2">
-                  Sharpening
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Use a whetstone (1000-6000 grit) to maintain the edge. Sharpen
-                  at the original 15-degree angle. With proper care, professional
-                  sharpening is only needed once or twice a year.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-black mb-2">Storage</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Store in a knife block or on a magnetic strip. Avoid storing in
-                  drawers where the blade can contact other utensils.
-                </p>
-              </div>
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
   };
 
   return (
     <div className="min-h-screen bg-[#f8f8f8]">
       {/* Hero Section */}
-      <section className="max-w-[1800px] mx-auto px-2 pt-8">
+      <section id="overview" className="max-w-[1800px] mx-auto px-2 pt-16">
         {/* Header */}
-        <div className="flex items-start justify-between mb-8">
+
+        <div className="flex justify-between mb-4">
           <div>
             <p className="text-sm text-gray-500 mb-2">
               {craft.maker} · {craft.category}
@@ -193,7 +128,9 @@ export default function CraftDetail() {
               </div>
             )}
           </div>
-          <div className="flex items-center gap-4">
+
+          {/* Price and Purchase Button */}
+          <div className="flex items-end gap-3">
             <p className="text-3xl font-medium text-black">${craft.price}</p>
             <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-2">
               Purchase Link
@@ -205,20 +142,197 @@ export default function CraftDetail() {
         {/* Hero Image */}
         <div
           className="bg-white rounded-2xl overflow-hidden"
-          style={{ boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)' }}
+          style={{
+            boxShadow:
+              "0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)",
+          }}
         >
-          <div className="w-full aspect-[16/9] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-            <span className="text-gray-400 text-sm">
-              High-resolution product image
-            </span>
+          <div className="w-full aspect-video relative bg-white">
+            <Image
+              src="/Gemini_Generated_Image_rvc40wrvc40wrvc4.png"
+              alt={craft.name}
+              fill
+              className="object-contain p-8"
+              priority
+            />
           </div>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="max-w-[1800px] mx-auto px-2 py-12 pb-32">
-        <div className="max-w-4xl mx-auto">
-          {renderContent()}
+      {/* Story Section */}
+      <section id="story" className="max-w-[1800px] mx-auto px-2 py-12">
+        <div className="max-w-6xl mx-auto">
+          {/* About This Craft */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-cormorant font-medium text-black mb-6">
+              About This Craft
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <p className="text-base text-gray-700 leading-relaxed">
+                {craft.description}
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed">
+                {craft.longDescription}
+              </p>
+            </div>
+          </div>
+
+          {/* Crafted With Obsession & Specs Combined */}
+          <div
+            className="bg-white rounded-2xl p-8 md:p-12 mb-16"
+            style={{
+              boxShadow:
+                "0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)",
+            }}
+          >
+            <h2 className="text-2xl font-cormorant font-medium text-black mb-8">
+              Crafted With Obsession
+            </h2>
+
+            {/* Two Column Layout */}
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Left: Craftsmanship Points */}
+              <div className="space-y-6">
+                {craft.craftedWith.map((item, index) => (
+                  <div
+                    key={index}
+                    className="pb-6 border-b border-gray-100 last:border-0 last:pb-0"
+                  >
+                    <h3 className="text-sm font-medium text-black mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right: Specifications */}
+              <div>
+                <h3 className="text-sm font-medium text-black mb-6 uppercase tracking-wider">
+                  Technical Specifications
+                </h3>
+                <dl className="space-y-4">
+                  {Object.entries(craft.specs).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="flex justify-between items-baseline pb-3 border-b border-gray-100"
+                    >
+                      <dt className="text-xs text-gray-500 uppercase tracking-wider">
+                        {key}
+                      </dt>
+                      <dd className="text-sm text-black font-medium">
+                        {value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          {/* The NASA Story - Highlighted Section */}
+          <div
+            className="bg-black text-white rounded-2xl p-8 md:p-12"
+            style={{
+              boxShadow:
+                "0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)",
+            }}
+          >
+            <h2 className="text-2xl font-cormorant font-medium mb-6">
+              The NASA Story
+            </h2>
+            <div className="space-y-4 text-gray-300 leading-relaxed">
+              <p>
+                In 1964, NASA operations engineer James Ragan was tasked with
+                finding a watch for the manned space program. He purchased
+                chronographs from multiple manufacturers and subjected them to
+                brutal qualification tests. Most failed within the first round
+                of testing.
+              </p>
+              <p>
+                The Speedmaster survived heating to 93°C and cooling to -18°C in
+                rapid cycles. It endured pressure changes from vacuum to high
+                atmosphere. It survived impacts that shattered competing
+                watches. On March 1, 1965, it was officially certified as
+                "Flight Qualified for all Manned Space Missions." Every NASA
+                astronaut since has worn one.
+              </p>
+              <p>
+                When the Apollo 13 oxygen tank exploded, the spacecraft's clocks
+                failed. Astronaut Jack Swigert used his Speedmaster to time the
+                critical 14-second engine burn that brought them home. NASA
+                awarded Omega the Silver Snoopy Award—their highest honor—for
+                saving the crew.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Others Also Considered */}
+      <section id="others" className="max-w-[1800px] mx-auto px-2 pb-32">
+        <h2 className="text-3xl font-cormorant font-medium text-black mb-8">
+          Others also considered
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {[
+            {
+              name: "Submariner",
+              maker: "Rolex",
+              tagline: "The dive watch that defined the category",
+              price: 9100,
+              image: "/Gemini_Generated_Image_u9pme2u9pme2u9pm.png",
+            },
+            {
+              name: "Navitimer",
+              maker: "Breitling",
+              tagline: "The pilot's chronograph since 1952",
+              price: 8600,
+              image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
+            },
+            {
+              name: "Monaco",
+              maker: "TAG Heuer",
+              tagline: "Square case, racing heritage",
+              price: 6500,
+              image: "/Gemini_Generated_Image_ibnox9ibnox9ibno.png",
+            },
+            {
+              name: "El Primero",
+              maker: "Zenith",
+              tagline: "First automatic chronograph movement",
+              price: 7200,
+              image: "/Gemini_Generated_Image_u9pme2u9pme2u9pm.png",
+            },
+          ].map((item, index) => (
+            <div key={index} className="cursor-pointer group">
+              <div
+                className="bg-white rounded-2xl overflow-hidden mb-4 transition-all"
+                style={{
+                  boxShadow:
+                    "0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)",
+                }}
+              >
+                <div className="aspect-square bg-white relative">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-contain p-8"
+                  />
+                </div>
+              </div>
+              <h3 className="text-lg font-medium text-black mb-1">
+                {item.name}
+              </h3>
+              <p className="text-sm text-gray-600 mb-2">{item.tagline}</p>
+              <p className="text-sm text-gray-900">
+                ${item.price.toLocaleString()}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -253,10 +367,10 @@ export default function CraftDetail() {
               backgroundSize: "200px 200px",
             }}
           />
-          {["Overview", "Story", "Care"].map((section) => (
+          {["Overview", "Story", "Others"].map((section) => (
             <button
               key={section}
-              onClick={() => setSelectedSection(section)}
+              onClick={() => scrollToSection(section)}
               className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 selectedSection === section
                   ? "bg-black text-white"
