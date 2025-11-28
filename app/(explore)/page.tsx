@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -80,75 +81,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f8f8f8]">
-      {/* Navigation */}
-      <nav>
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="shrink-0">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-black"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5" />
-                  <path d="M2 12l10 5 10-5" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Center Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
-                className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
-              >
-                Explore
-              </a>
-              <a
-                href="#"
-                className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
-              >
-                Blog
-              </a>
-            </div>
-
-            {/* Search Icon */}
-            <button className="p-2 hover:bg-gray-200 rounded-full transition-colors">
-              <svg
-                className="w-5 h-5 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 pt-8 pb-12 text-center">
+      <section className="max-w-4xl mx-auto px-2 pt-8 pb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-cormorant font-medium text-black mb-4 leading-tight tracking-tight">
           A Curated Gallery of the <br />
           World's Finest Craft{" "}
         </h1>
-        <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
+        <p className="text-md text-gray-600 mb-4 max-w-2xl mx-auto">
           Explore exceptional craft from around the world. Delivered weekly.
         </p>
 
         {/* Email Subscription */}
-        <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+        <form onSubmit={handleSubscribe} className="max-w-sm mx-auto">
           <div className="relative">
             <input
               type="email"
@@ -169,11 +113,12 @@ export default function Home() {
       </section>
 
       {/* Craft Items Grid */}
-      <section className="max-w-7xl mx-auto px-6 pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <section className="max-w-[1800px] mx-auto px-2 pb-32">
+        <div className="grid grid-cols-3 gap-3">
           {filteredItems.map((item) => (
-            <div
+            <Link
               key={item.id}
+              href={`/craft/${item.id}`}
               className="group cursor-pointer bg-white border border-gray-200 rounded-2xl overflow-hidden"
             >
               <div className="relative aspect-square bg-white flex items-center justify-center">
@@ -181,18 +126,13 @@ export default function Home() {
                 <span className="text-gray-400 text-sm">Image placeholder</span>
               </div>
               <div className="p-4">
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex-1">
-                    <p className="text-xs text-gray-500 mb-1">
-                      {item.maker} · {item.category}
-                    </p>
-                    <h3 className="text-sm font-medium text-black">
-                      {item.name}
-                    </h3>
-                  </div>
-                  <p className="text-sm font-medium text-black ml-4">
-                    ${item.price}
+                <div className="mb-2">
+                  <p className="text-xs text-gray-500 mb-1">
+                    {item.maker} · {item.category}
                   </p>
+                  <h3 className="text-sm font-medium text-black">
+                    {item.name}
+                  </h3>
                 </div>
                 {item.isStaffPick && (
                   <div className="flex items-center gap-1 text-xs text-amber-600 mt-2">
@@ -201,19 +141,29 @@ export default function Home() {
                   </div>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Floating Filter Bar */}
-      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-6">
-        <div className="bg-white/10 backdrop-blur-xl border border-white/30 rounded-full shadow-lg px-2 py-2 flex items-center gap-2">
+      {/* Floating Toolbar */}
+      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center items-center gap-2 px-2">
+        {/* Filter Bar */}
+        <div className="relative backdrop-blur-sm rounded-full shadow-lg px-2 py-2 flex items-center gap-2 overflow-hidden">
+          {/* Grain overlay for background */}
+          <div
+            className="absolute inset-0 opacity-40 pointer-events-none rounded-full bg-white/10"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' /%3E%3C/svg%3E")`,
+              backgroundRepeat: "repeat",
+              backgroundSize: "200px 200px",
+            }}
+          />
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedFilter(category)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 selectedFilter === category
                   ? "bg-black text-white"
                   : "text-gray-900 hover:bg-white/30"
@@ -222,6 +172,33 @@ export default function Home() {
               {category}
             </button>
           ))}
+        </div>
+        {/* Search Icon Island */}
+        <div className="relative backdrop-blur-sm rounded-full shadow-lg p-2 overflow-hidden">
+          {/* Grain overlay for background */}
+          <div
+            className="absolute inset-0 opacity-40 pointer-events-none rounded-full bg-white/10"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' /%3E%3C/svg%3E")`,
+              backgroundRepeat: "repeat",
+              backgroundSize: "200px 200px",
+            }}
+          />
+          <button className="relative p-2 hover:bg-white/30 rounded-full transition-colors">
+            <svg
+              className="w-5 h-5 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
