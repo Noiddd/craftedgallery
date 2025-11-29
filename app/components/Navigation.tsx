@@ -9,7 +9,10 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="shrink-0">
-            <Link href="/" className="block w-8 h-8 flex items-center justify-center">
+            <Link
+              href="/"
+              className="block w-8 h-8 flex items-center justify-center"
+            >
               <svg
                 className="w-6 h-6 text-black"
                 viewBox="0 0 24 24"
@@ -26,7 +29,7 @@ export default function Navigation() {
 
           {/* Center Navigation */}
           <div className="flex items-center space-x-8">
-            <Link
+            {/* <Link
               href="/"
               className="text-sm font-medium text-black hover:text-gray-600 transition-colors"
             >
@@ -37,7 +40,7 @@ export default function Navigation() {
               className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
             >
               Read
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

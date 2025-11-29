@@ -17,7 +17,9 @@ export interface CraftedWithItem {
 export interface RelatedCraft {
   name: string;
   maker: string;
+  category: string;
   tagline: string;
+  description: string;
   price: number;
   image: string;
 }
