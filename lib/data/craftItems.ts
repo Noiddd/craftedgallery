@@ -1,4 +1,4 @@
-import { CraftItem } from '@/lib/types';
+import { CraftItem } from "@/lib/types";
 
 export const craftItems: CraftItem[] = [
   {
@@ -9,6 +9,7 @@ export const craftItems: CraftItem[] = [
     price: 89,
     image: "/placeholder-1.jpg",
     isStaffPick: true,
+    description: "Shaped over 6 months, refined through 200+ iterations",
   },
   {
     id: 2,
@@ -18,6 +19,8 @@ export const craftItems: CraftItem[] = [
     price: 65,
     image: "/placeholder-2.jpg",
     isStaffPick: false,
+    description:
+      "Hand-stitched at 4mm intervals using 12-strand twisted thread",
   },
   {
     id: 3,
@@ -26,33 +29,37 @@ export const craftItems: CraftItem[] = [
     category: "Tech",
     price: 299,
     image: "/placeholder-3.jpg",
-    isStaffPick: true,
+    isStaffPick: false,
+    description: "Each switch tested 10 million times, 0.05mm tolerance",
   },
   {
     id: 4,
-    name: "Handcrafted Ceramic Bowl",
-    maker: "Studio Pottery",
+    name: "Woven Wool Throw",
+    maker: "Textile Studio",
     category: "Home",
-    price: 89,
-    image: "/placeholder-1.jpg",
+    price: 145,
+    image: "/placeholder-4.jpg",
     isStaffPick: true,
+    description: "Woven on 1947 loom using single-farm highland wool",
   },
   {
     id: 5,
-    name: "Leather Notebook",
-    maker: "Artisan Goods",
+    name: "Canvas Messenger Bag",
+    maker: "Heritage Works",
     category: "Carry",
-    price: 65,
-    image: "/placeholder-2.jpg",
+    price: 185,
+    image: "/placeholder-5.jpg",
     isStaffPick: false,
+    description: "Canvas aged 18 months, leather tanned 90 days",
   },
   {
     id: 6,
-    name: "Mechanical Keyboard",
-    maker: "Precision Tech",
+    name: "Wireless Headphones",
+    maker: "Audio Craftsmen",
     category: "Tech",
-    price: 299,
-    image: "/placeholder-3.jpg",
+    price: 425,
+    image: "/placeholder-6.jpg",
     isStaffPick: true,
+    description: "Walnut aged 3 years, drivers tuned 500 points",
   },
 ];

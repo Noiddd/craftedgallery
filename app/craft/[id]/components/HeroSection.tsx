@@ -1,9 +1,9 @@
 "use client";
 
-import Image from 'next/image';
-import { ExternalLink } from 'lucide-react';
-import { CraftDetail } from '@/lib/types';
-import { CARD_SHADOW } from '@/lib/constants/styles';
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
+import { CraftDetail } from "@/lib/types";
+import { CARD_SHADOW } from "@/lib/constants/styles";
 
 interface HeroSectionProps {
   craft: CraftDetail;
@@ -21,12 +21,6 @@ export function HeroSection({ craft }: HeroSectionProps) {
             {craft.name}
           </h1>
           <p className="text-base text-gray-600">{craft.tagline}</p>
-          {craft.isStaffPick && (
-            <div className="flex items-center gap-1.5 text-sm text-amber-600 mt-3">
-              <span>⭐</span>
-              <span className="font-medium">Curator's Choice</span>
-            </div>
-          )}
         </div>
 
         <div className="flex items-end gap-3">
@@ -50,6 +44,12 @@ export function HeroSection({ craft }: HeroSectionProps) {
             className="object-contain p-8"
             priority
           />
+          {craft.isStaffPick && (
+            <div className="absolute top-6 right-6 flex items-center gap-1.5 text-sm text-amber-600 font-medium">
+              <span>⭐</span>
+              <span>Curator's Choice</span>
+            </div>
+          )}
         </div>
       </div>
     </section>

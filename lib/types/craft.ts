@@ -6,6 +6,7 @@ export interface CraftItem {
   price: number;
   image: string;
   isStaffPick: boolean;
+  description: string;
 }
 
 export interface CraftedWithItem {
