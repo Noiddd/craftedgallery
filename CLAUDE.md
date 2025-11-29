@@ -10,16 +10,16 @@ Crafted Gallery is a Next.js 16 application showcasing curated craft items. The 
 
 ```bash
 # Start development server
-npm run dev
+pnpm run dev
 
 # Build for production
-npm run build
+pnpm run build
 
 # Start production server
-npm start
+pnpm start
 
 # Run linter
-npm run lint
+pnpm run lint
 ```
 
 The development server runs at `http://localhost:3000`.
@@ -37,22 +37,48 @@ The development server runs at `http://localhost:3000`.
 
 **Client Components**: All page components use `"use client"` directive as they require interactivity (state, hooks, event handlers).
 
-**Data Management**: Currently uses hardcoded placeholder data within components. Craft items are defined as objects with properties: `id`, `name`, `maker`, `category`, `price`, `image`, `isStaffPick`, and detailed pages include `tagline`, `description`, `craftedWith`, and `specs`.
+**Data Management**: Centralized in `lib/data/` directory:
+
+- `lib/data/craftItems.ts`: Gallery items displayed on explore page
+- `lib/data/craftDetails.ts`: Full craft details keyed by ID
+- `lib/data/categories.ts`: Filter categories
+
+**Type System**: TypeScript interfaces in `lib/types/`:
+
+- `CraftItem`: Basic item shown in gallery grid
+- `CraftDetail`: Extended with tagline, description, craftedWith, specs, story
+- `CraftedWithItem`, `CraftStory`, `RelatedCraft`: Nested data structures
 
 **Styling Approach**:
 
 - Tailwind CSS v4 (uses `@import "tailwindcss"` syntax in globals.css)
 - Custom font variables defined in layout: `--font-geist-sans`, `--font-geist-mono`, `--font-cormorant`
+- Centralized style constants in `lib/constants/styles.ts` (`BG_COLOR`, `CARD_SHADOW`)
+- Custom glassmorphic floating toolbars with grain texture overlay (using inline SVG noise filter in `lib/constants/grainOverlay.ts`)
 - Consistent design system: `#f8f8f8` background, white cards with subtle shadows, black CTAs
-- Custom glassmorphic floating toolbars with grain texture overlay (using inline SVG noise filter)
 
 **Navigation Pattern**: Shared `<Navigation />` component in root layout provides consistent header across all pages. Individual pages have floating toolbars at bottom with contextual controls (filters on explore page, section navigation on detail pages).
 
 ### Component Organization
 
-Components live in `app/components/`:
+**Page-specific components**: Organized alongside their pages
 
-- `Navigation.tsx`: Global header with logo and navigation links (Explore, Read)
+- `app/(explore)/components/`: HeroSection, CraftGrid, ExploreToolbar, EmailSubscriptionForm
+- `app/craft/[id]/components/`: HeroSection, AboutSection, CraftedWithSection, StorySection, RelatedCraftsSection, CraftDetailToolbar
+- `app/craft/[id]/components/hooks/`: useSectionObserver (scroll-based section tracking)
+
+**Shared UI components**: `app/components/`
+
+- `Navigation.tsx`: Global header
+- `app/components/ui/`: Reusable UI primitives (FloatingToolbar, CraftCard, AnimatedTabButton, SearchButton, ToolbarButton)
+- `app/components/shared/`: Cross-cutting concerns (GrainOverlay)
+
+**Component Patterns**:
+
+- Page components are thin orchestrators that import section components
+- Section components are self-contained and receive props from pages
+- UI components are generic and reusable across different contexts
+- Custom hooks encapsulate complex behavior (IntersectionObserver logic in useSectionObserver)
 
 ### Fonts
 
@@ -62,42 +88,32 @@ Three font families loaded via next/font/google:
 - Geist Mono (monospace) - for code/technical text
 - Cormorant Garamond (serif) - for headings and display text
 
-## Development Notes
-
-### TypeScript Configuration
+## TypeScript Configuration
 
 - Path alias `@/*` maps to project root
 - Target: ES2017
 - Strict mode enabled
 - JSX set to `react-jsx` (not `preserve`)
 
-### Styling Conventions
+## Styling Conventions
 
 - Use `font-cormorant` class for serif headings
 - Rounded corners: `rounded-2xl` for cards, `rounded-full` for buttons/pills
-- Shadows: Subtle inline box-shadow (`0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.02)`)
+- Shadows: Import `CARD_SHADOW` from `lib/constants/styles.ts` for consistent inline box-shadow
+- Background: Use `BG_COLOR` constant from `lib/constants/styles.ts`
 - Spacing: Generous whitespace, `pb-32` at bottom of sections to accommodate floating toolbar
+- Grain overlay: Import `GRAIN_OVERLAY_SVG` from `lib/constants/grainOverlay.ts` for glassmorphic effects
 
-### Adding New Features
+## Animations Guidelines
 
-When adding data-driven features, be prepared to:
-
-1. Create proper TypeScript interfaces for craft items
-2. Set up data fetching (currently no API layer exists)
-3. Consider moving hardcoded data to separate data files or API routes
-
-The application is in early stages with placeholder content - real images, data, and backend integration are not yet implemented.
-
-# Animations Guidelines
-
-## Keep your animations fast
+### Keep your animations fast
 
 - Default to use `ease-out` for most animations.
-- Animations should never be longer than 1s (unless it’s illustrative), most of them should be around 0.2s to 0.3s.
+- Animations should never be longer than 1s (unless it's illustrative), most of them should be around 0.2s to 0.3s.
 
-## Easing rules
+### Easing rules
 
-- Don’t use built-in CSS easings unless it’s `ease` or `linear`.
+- Don't use built-in CSS easings unless it's `ease` or `linear`.
 - Use the following easings for their described use case:
 
   - **`ease-in`**: (Starts slow, speeds up) Should generally be avoided as it makes the UI feel slow.
@@ -126,21 +142,21 @@ The application is in early stages with placeholder content - real images, data,
     - `ease-in-out-expo`: `cubic-bezier(1, 0, 0, 1)`
     - `ease-in-out-circ`: `cubic-bezier(.785, .135, .15, .86)`
 
-## Hover transitions
+### Hover transitions
 
 - Use the built-in CSS `ease` with a duration of `200ms` for simple hover transitions like `color`, `background-color`, `opacity`.
 - Fall back to easing rules for more complex hover transitions.
 - Disable hover transitions on touch devices with the `@media (hover: hover) and (pointer: fine)` media query.
 
-## Accessibility
+### Accessibility
 
 - If `transform` is used in the animation, disable it in the `prefers-reduced-motion` media query.
 
-## Origin-aware animations
+### Origin-aware animations
 
 - Elements should animate from the trigger. If you open a dropdown or a popover it should animate from the button. Change `transform-origin` according to the trigger position.
 
-## Performance
+### Performance
 
 - Stick to opacity and transforms when possible. Example: Animate using `transform` instead of `top`, `left`, etc. when trying to move an element.
 - Do not animate drag gestures using CSS variables.
@@ -148,7 +164,7 @@ The application is in early stages with placeholder content - real images, data,
 - Use `will-change` to optimize your animation, but use it only for: `transform`, `opacity`, `clipPath`, `filter`.
 - When using Motion/Framer Motion use `transform` instead of `x` or `y` if you need animations to be hardware accelerated.
 
-## Spring animations
+### Spring animations
 
 - Default to spring animations when using Framer Motion.
 - Avoid using bouncy spring animations unless you are working with drag gestures.

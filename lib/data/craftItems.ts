@@ -1,0 +1,58 @@
+import { CraftItem } from '@/lib/types';
+
+export const craftItems: CraftItem[] = [
+  {
+    id: 1,
+    name: "Handcrafted Ceramic Bowl",
+    maker: "Studio Pottery",
+    category: "Home",
+    price: 89,
+    image: "/placeholder-1.jpg",
+    isStaffPick: true,
+  },
+  {
+    id: 2,
+    name: "Leather Notebook",
+    maker: "Artisan Goods",
+    category: "Carry",
+    price: 65,
+    image: "/placeholder-2.jpg",
+    isStaffPick: false,
+  },
+  {
+    id: 3,
+    name: "Mechanical Keyboard",
+    maker: "Precision Tech",
+    category: "Tech",
+    price: 299,
+    image: "/placeholder-3.jpg",
+    isStaffPick: true,
+  },
+  {
+    id: 4,
+    name: "Handcrafted Ceramic Bowl",
+    maker: "Studio Pottery",
+    category: "Home",
+    price: 89,
+    image: "/placeholder-1.jpg",
+    isStaffPick: true,
+  },
+  {
+    id: 5,
+    name: "Leather Notebook",
+    maker: "Artisan Goods",
+    category: "Carry",
+    price: 65,
+    image: "/placeholder-2.jpg",
+    isStaffPick: false,
+  },
+  {
+    id: 6,
+    name: "Mechanical Keyboard",
+    maker: "Precision Tech",
+    category: "Tech",
+    price: 299,
+    image: "/placeholder-3.jpg",
+    isStaffPick: true,
+  },
+];
