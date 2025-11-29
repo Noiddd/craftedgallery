@@ -1,0 +1,105 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+
+export default function Footer() {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Subscribing:", email);
+  };
+
+  return (
+    <footer className="bg-black text-white pt-16 pb-40">
+      <div className="max-w-[1800px] mx-auto px-8 py-16">
+        <div className="flex flex-col gap-12 lg:gap-16">
+          {/* Top Section - Centered */}
+          <div className="flex flex-col items-center space-y-4">
+            {/* Logo and Heading */}
+            <div className="space-y-2 text-center">
+              <h2 className="text-4xl md:text-5xl font-cormorant font-light tracking-wide">
+                CRAFTED GALLERY
+              </h2>
+            </div>
+            {/* Tagline */}
+            <p className="text-gray-300 text-xs md:text-sm max-w-2xl text-center whitespace-nowrap">
+              Stories of obsession, precision, and things built to outlive us.
+              Every week.
+            </p>
+            {/* Email Subscription Form */}
+            <div className="space-y-4 w-full">
+              <form
+                onSubmit={handleSubscribe}
+                className="max-w-md mx-auto w-full"
+              >
+                <div className="relative">
+                  <input
+                    type="email"
+                    id="footer-email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="example@domain.com"
+                    className="w-full px-4 py-3 pr-24 sm:pr-32 bg-white border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-sm"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-sm font-medium"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* Bottom Section - Navigation Links Spread Horizontally */}
+          <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-8 lg:gap-12">
+            <Link
+              href="/about"
+              className="flex items-center gap-2 group text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+            >
+              <span>About</span>
+              <svg
+                className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </Link>
+
+            <Link
+              href="/contact"
+              className="text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+            >
+              Contact us
+            </Link>
+
+            <Link
+              href="/advertise"
+              className="text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+            >
+              Advertise with us
+            </Link>
+
+            <Link
+              href="/sitemap"
+              className="text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+            >
+              Site map
+            </Link>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  );
+}
