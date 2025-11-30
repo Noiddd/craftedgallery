@@ -1,2 +1,2 @@
-export const categories = ["All", "Home", "Carry", "Tech"] as const;
-export type Category = typeof categories[number];
+export const categories = ["All", "New", "Curator's Choice", "Tech"] as const;
+export type Category = (typeof categories)[number];
