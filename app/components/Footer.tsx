@@ -12,7 +12,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white pt-16 pb-40">
+    <footer className="text-white pt-16 pb-40" style={{ backgroundColor: '#1a1614' }}>
       <div className="max-w-[1800px] mx-auto px-8 py-16">
         <div className="flex flex-col gap-12 lg:gap-16">
           {/* Top Section - Centered */}
@@ -41,12 +41,15 @@ export default function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="example@domain.com"
-                    className="w-full px-4 py-3 pr-24 sm:pr-32 bg-white border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-sm"
+                    className="w-full px-4 py-3 pr-24 sm:pr-32 bg-card border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-sm"
                     required
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-sm font-medium"
+                    className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 text-white rounded-full transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-sm font-medium"
+                    style={{ backgroundColor: '#1a1614' }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#2d2421'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1a1614'}
                   >
                     Subscribe
                   </button>

@@ -12,10 +12,10 @@ export function CraftCard({ craft }: CraftCardProps) {
   return (
     <Link
       href={`/craft/${craft.id}`}
-      className="group cursor-pointer bg-white rounded-2xl overflow-hidden"
+      className="group cursor-pointer bg-card rounded-2xl overflow-hidden"
       style={{ boxShadow: CARD_SHADOW }}
     >
-      <div className="relative aspect-square bg-white flex items-center justify-center">
+      <div className="relative aspect-square bg-card flex items-center justify-center">
         <span className="text-gray-400 text-sm">Image placeholder</span>
         {craft.isStaffPick && (
           <div className="absolute top-4 right-4 flex items-center gap-1 text-xs text-amber-600">

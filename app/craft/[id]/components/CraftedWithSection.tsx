@@ -17,7 +17,7 @@ export function CraftedWithSection({ items }: CraftedWithSectionProps) {
         {items.map((item, index) => (
           <div
             key={index}
-            className="bg-white rounded-2xl p-6"
+            className="bg-card rounded-2xl p-6"
             style={{ boxShadow: CARD_SHADOW }}
           >
             <h3 className="text-base font-medium text-black mb-3">

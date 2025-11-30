@@ -1,22 +1,20 @@
 "use client";
 
-import { CARD_SHADOW } from '@/lib/constants/styles';
+import { CARD_SHADOW } from "@/lib/constants/styles";
 
 interface StorySectionProps {
   title: string;
   paragraphs: string[];
 }
 
-export function StorySection({
-  title,
-  paragraphs,
-}: StorySectionProps) {
+export function StorySection({ title, paragraphs }: StorySectionProps) {
   return (
     <div
       className="relative text-white rounded-2xl p-10 md:p-16 overflow-hidden"
       style={{
         boxShadow: CARD_SHADOW,
-        background: 'radial-gradient(ellipse 1000px 800px at 50% 0%, rgba(70, 70, 70, 0.5), transparent 68%), #000000'
+        background:
+          "radial-gradient(ellipse 1000px 800px at 50% 0%, rgba(70, 70, 70, 0.5), transparent 68%), #000000",
       }}
     >
       {/* Floating dust particles - Layer 1 */}
@@ -33,8 +31,8 @@ export function StorySection({
             radial-gradient(circle 1.5px at 75% 40%, rgba(255, 255, 255, 0.8), transparent),
             radial-gradient(circle 1px at 15% 60%, rgba(255, 255, 255, 0.5), transparent)
           `,
-          backgroundSize: '100% 100%',
-          animation: 'floatDust1 6s ease-in-out infinite'
+          backgroundSize: "100% 100%",
+          animation: "floatDust1 6s ease-in-out infinite",
         }}
       />
 
@@ -51,8 +49,8 @@ export function StorySection({
             radial-gradient(circle 1px at 70% 5%, rgba(255, 255, 255, 0.6), transparent),
             radial-gradient(circle 1.5px at 25% 45%, rgba(255, 255, 255, 0.7), transparent)
           `,
-          backgroundSize: '100% 100%',
-          animation: 'floatDust2 7s ease-in-out infinite 2s'
+          backgroundSize: "100% 100%",
+          animation: "floatDust2 7s ease-in-out infinite 2s",
         }}
       />
 
@@ -71,8 +69,8 @@ export function StorySection({
             radial-gradient(circle 1.5px at 12% 38%, rgba(255, 255, 255, 0.8), transparent),
             radial-gradient(circle 1px at 92% 48%, rgba(255, 255, 255, 0.5), transparent)
           `,
-          backgroundSize: '100% 100%',
-          animation: 'floatDust3 8s ease-in-out infinite 4s'
+          backgroundSize: "100% 100%",
+          animation: "floatDust3 8s ease-in-out infinite 4s",
         }}
       />
 
@@ -148,9 +146,7 @@ export function StorySection({
       `}</style>
 
       <div className="relative z-10">
-        <h2 className="text-2xl font-cormorant font-medium mb-6">
-          {title}
-        </h2>
+        <h2 className="text-2xl font-cormorant font-medium mb-6">{title}</h2>
         <div className="space-y-4 text-gray-200 leading-relaxed">
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>

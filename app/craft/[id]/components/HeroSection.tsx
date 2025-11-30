@@ -33,10 +33,10 @@ export function HeroSection({ craft }: HeroSectionProps) {
       </div>
 
       <div
-        className="bg-white rounded-2xl overflow-hidden"
+        className="bg-card rounded-2xl overflow-hidden"
         style={{ boxShadow: CARD_SHADOW }}
       >
-        <div className="w-full aspect-video relative bg-white">
+        <div className="w-full aspect-video relative bg-card">
           <Image
             src={craft.image}
             alt={craft.name}

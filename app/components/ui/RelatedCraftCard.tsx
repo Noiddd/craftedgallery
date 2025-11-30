@@ -11,10 +11,10 @@ interface RelatedCraftCardProps {
 export function RelatedCraftCard({ craft }: RelatedCraftCardProps) {
   return (
     <div
-      className="cursor-pointer group bg-white rounded-2xl overflow-hidden"
+      className="cursor-pointer group bg-card rounded-2xl overflow-hidden"
       style={{ boxShadow: CARD_SHADOW }}
     >
-      <div className="aspect-square bg-white relative">
+      <div className="aspect-square bg-card relative">
         <Image
           src={craft.image}
           alt={craft.name}
