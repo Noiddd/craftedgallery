@@ -41,7 +41,7 @@ export function HeroSection({ craft }: HeroSectionProps) {
             src={craft.image}
             alt={craft.name}
             fill
-            className="object-contain p-8"
+            className="object-contain p-24"
             priority
           />
           {craft.isStaffPick && (
