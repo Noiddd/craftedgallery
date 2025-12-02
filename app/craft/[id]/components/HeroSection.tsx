@@ -24,7 +24,6 @@ export function HeroSection({ craft }: HeroSectionProps) {
         </div>
 
         <div className="flex items-end gap-3">
-          <p className="text-3xl font-medium text-black">${craft.price}</p>
           <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-2">
             Purchase Link
             <ExternalLink className="w-4 h-4" />
