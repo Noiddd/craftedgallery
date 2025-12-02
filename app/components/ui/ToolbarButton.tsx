@@ -12,11 +12,7 @@ export function ToolbarButton({ onClick, active = false, children }: ToolbarButt
   return (
     <button
       onClick={onClick}
-      className={`relative px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-        active
-          ? "text-white"
-          : "text-gray-900 hover:bg-white/30"
-      }`}
+      className="relative px-5 py-2 rounded-full text-sm font-medium hover:bg-white/30"
     >
       {active && (
         <motion.div
@@ -29,7 +25,13 @@ export function ToolbarButton({ onClick, active = false, children }: ToolbarButt
           }}
         />
       )}
-      <span className="relative z-10">{children}</span>
+      <span
+        className={`relative z-10 transition-colors ${
+          active ? "text-white" : "text-gray-900"
+        }`}
+      >
+        {children}
+      </span>
     </button>
   );
 }

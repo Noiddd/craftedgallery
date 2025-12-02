@@ -9,16 +9,16 @@ import { CraftGrid } from './components/CraftGrid';
 import { ExploreToolbar } from './components/ExploreToolbar';
 
 export default function Home() {
-  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [selectedFilters, setSelectedFilters] = useState<string[]>(["All"]);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: BG_COLOR }}>
       <HeroSection />
-      <CraftGrid items={craftItems} selectedFilter={selectedFilter} />
+      <CraftGrid items={craftItems} selectedFilters={selectedFilters} />
       <ExploreToolbar
         categories={categories}
-        selectedFilter={selectedFilter}
-        onFilterChange={setSelectedFilter}
+        selectedFilters={selectedFilters}
+        onFiltersChange={setSelectedFilters}
       />
     </div>
   );
