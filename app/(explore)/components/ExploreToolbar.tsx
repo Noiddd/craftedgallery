@@ -19,11 +19,7 @@ const SHEET_SPRING = { type: "spring", damping: 25, stiffness: 300 } as const;
 const CHECK_SPRING = { type: "spring", damping: 20, stiffness: 400 } as const;
 
 // Category filter options (multi-select dropdown) - matches actual item categories
-const FILTER_CATEGORIES = [
-  "Home",
-  "Carry",
-  "Tech",
-] as const;
+const FILTER_CATEGORIES = ["Home", "Carry", "Tech"] as const;
 
 export function ExploreToolbar({
   categories,
@@ -85,7 +81,7 @@ export function ExploreToolbar({
           />
           <div className="relative p-3 max-h-[50vh] overflow-y-auto">
             <div className="text-xs font-medium text-black/40 mb-2 px-2">
-              Filter by category (select multiple)
+              Filter by category
             </div>
             <div className="space-y-1">
               {FILTER_CATEGORIES.map((category) => {
