@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from 'motion/react';
+
 interface ToolbarButtonProps {
   onClick?: () => void;
   active?: boolean;
@@ -10,13 +12,24 @@ export function ToolbarButton({ onClick, active = false, children }: ToolbarButt
   return (
     <button
       onClick={onClick}
-      className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all ${
+      className={`relative px-5 py-2 rounded-full text-sm font-medium transition-colors ${
         active
-          ? "bg-black text-white"
+          ? "text-white"
           : "text-gray-900 hover:bg-white/30"
       }`}
     >
-      {children}
+      {active && (
+        <motion.div
+          layoutId="activeCategory"
+          className="absolute inset-0 bg-black rounded-full z-0"
+          transition={{
+            type: "spring",
+            stiffness: 380,
+            damping: 30,
+          }}
+        />
+      )}
+      <span className="relative z-10">{children}</span>
     </button>
   );
 }
