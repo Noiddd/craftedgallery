@@ -9,7 +9,7 @@ interface CraftGridProps {
 }
 
 // Toolbar filter categories (special filters)
-const TOOLBAR_CATEGORIES = ["All", "New", "Curator's Choice"];
+const TOOLBAR_CATEGORIES = ["All", "New"];
 // Category filter categories (actual item categories)
 const CATEGORY_FILTERS = ["Home", "Carry", "Tech"];
 
@@ -29,9 +29,6 @@ export function CraftGrid({ items, selectedFilters }: CraftGridProps) {
   if (toolbarFilter === "New") {
     // Show newest items (e.g., highest IDs or most recently added)
     filteredItems = filteredItems.filter((item) => item.id >= 4);
-  } else if (toolbarFilter === "Curator's Choice") {
-    // Show staff picks only
-    filteredItems = filteredItems.filter((item) => item.isStaffPick);
   }
   // If "All" or no toolbar filter, don't filter by toolbar
 

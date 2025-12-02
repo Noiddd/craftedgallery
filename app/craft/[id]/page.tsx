@@ -1,15 +1,15 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { BG_COLOR } from '@/lib/constants/styles';
-import { craftDetails } from '@/lib/data/craftDetails';
-import { useSectionObserver } from './components/hooks/useSectionObserver';
-import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { CraftedWithSection } from './components/CraftedWithSection';
-import { StorySection } from './components/StorySection';
-import { RelatedCraftsSection } from './components/RelatedCraftsSection';
-import { CraftDetailToolbar } from './components/CraftDetailToolbar';
+import { BG_COLOR } from "@/lib/constants/styles";
+import { craftDetails } from "@/lib/data/craftDetails";
+import { useSectionObserver } from "./components/hooks/useSectionObserver";
+import { HeroSection } from "./components/HeroSection";
+import { AboutSection } from "./components/AboutSection";
+import { CraftedWithSection } from "./components/CraftedWithSection";
+import { StorySection } from "./components/StorySection";
+import { RelatedCraftsSection } from "./components/RelatedCraftsSection";
+import { CraftDetailToolbar } from "./components/CraftDetailToolbar";
 
 const SECTIONS = ["Overview", "Story", "Others"];
 

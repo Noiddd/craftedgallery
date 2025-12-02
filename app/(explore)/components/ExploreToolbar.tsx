@@ -103,7 +103,10 @@ export function ExploreToolbar({
               </div>
               {categoryFilters.length > 0 && (
                 <button
-                  onClick={() => onFiltersChange([...toolbarFilters])}
+                  onClick={() => {
+                    onFiltersChange([...toolbarFilters]);
+                    setIsExpanded(false);
+                  }}
                   className="text-xs text-black/40 hover:text-black/60 transition-colors"
                 >
                   Clear

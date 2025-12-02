@@ -43,12 +43,6 @@ export function HeroSection({ craft }: HeroSectionProps) {
             className="object-contain p-24"
             priority
           />
-          {craft.isStaffPick && (
-            <div className="absolute top-6 right-6 flex items-center gap-1.5 text-sm text-amber-600 font-medium">
-              <span>⭐</span>
-              <span>Curator's Choice</span>
-            </div>
-          )}
         </div>
       </div>
     </section>

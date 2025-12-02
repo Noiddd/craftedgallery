@@ -26,12 +26,6 @@ export function CraftCard({ craft }: CraftCardProps) {
             className="object-contain"
           />
         </div>
-        {craft.isStaffPick && (
-          <div className="absolute top-4 right-4 flex items-center gap-1 text-xs text-amber-600">
-            <BadgeCheck className="w-4 h-4" strokeWidth={2.5} />
-            <span className="font-semibold">Curator's Choice</span>
-          </div>
-        )}
       </div>
       <div className="p-4">
         <div className="mb-2">
