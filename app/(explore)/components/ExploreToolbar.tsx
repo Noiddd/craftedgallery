@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import { FloatingToolbar } from "@/app/components/ui/FloatingToolbar";
@@ -27,6 +27,23 @@ export function ExploreToolbar({
   onFiltersChange,
 }: ExploreToolbarProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const toolbarRef = useRef<HTMLDivElement>(null);
+
+  // Close sheet when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isExpanded &&
+        toolbarRef.current &&
+        !toolbarRef.current.contains(event.target as Node)
+      ) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isExpanded]);
 
   // Separate toolbar filters from category filters
   const toolbarFilters = selectedFilters.filter((f) => categories.includes(f));
@@ -61,7 +78,7 @@ export function ExploreToolbar({
 
   return (
     <div className="fixed bottom-4 sm:bottom-6 left-0 right-0 z-50 flex justify-center items-center px-4 sm:px-6 lg:px-8">
-      <div className="relative flex items-center gap-2">
+      <div ref={toolbarRef} className="relative flex items-center gap-2">
         <motion.div
           initial={false}
           animate={{
@@ -80,8 +97,18 @@ export function ExploreToolbar({
             }}
           />
           <div className="relative p-3 max-h-[50vh] overflow-y-auto">
-            <div className="text-xs font-medium text-black/40 mb-2 px-2">
-              Filter by category
+            <div className="flex items-center justify-between mb-2 px-2">
+              <div className="text-xs font-medium text-black/40">
+                Filter by category
+              </div>
+              {categoryFilters.length > 0 && (
+                <button
+                  onClick={() => onFiltersChange([...toolbarFilters])}
+                  className="text-xs text-black/40 hover:text-black/60 transition-colors"
+                >
+                  Clear
+                </button>
+              )}
             </div>
             <div className="space-y-1">
               {FILTER_CATEGORIES.map((category) => {
