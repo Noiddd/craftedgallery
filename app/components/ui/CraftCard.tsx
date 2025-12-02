@@ -29,7 +29,7 @@ export function CraftCard({ craft }: CraftCardProps) {
         {craft.isStaffPick && (
           <div className="absolute top-4 right-4 flex items-center gap-1 text-xs text-amber-600">
             <BadgeCheck className="w-4 h-4" strokeWidth={2.5} />
-            <span className="font-medium">Curator's Choice</span>
+            <span className="font-semibold">Curator's Choice</span>
           </div>
         )}
       </div>

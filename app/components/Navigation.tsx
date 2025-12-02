@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { BG_COLOR } from "@/lib/constants/styles";
 
 export default function Navigation() {
   return (
-    <nav className="bg-[#f8f8f8]">
+    <nav style={{ backgroundColor: BG_COLOR }}>
       <div className="max-w-[1800px] mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}

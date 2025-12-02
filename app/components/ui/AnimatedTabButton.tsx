@@ -21,8 +21,7 @@ export function AnimatedTabButton({ section, isActive, onClick }: AnimatedTabBut
       {isActive && (
         <motion.div
           layoutId="activeSection"
-          className="absolute inset-0 bg-black rounded-full"
-          style={{ zIndex: -1 }}
+          className="absolute inset-0 bg-black rounded-full z-0"
           transition={{
             type: "spring",
             stiffness: 380,
