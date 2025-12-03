@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ craft }: HeroSectionProps) {
   return (
-    <section className="max-w-[1800px] mx-auto px-8 pt-16">
+    <section className="max-w-[1800px] mx-auto px-8 pt-8">
       <div className="flex justify-between mb-4">
         <div>
           <p className="text-sm text-gray-500 mb-2">
@@ -23,12 +23,12 @@ export function HeroSection({ craft }: HeroSectionProps) {
           <p className="text-base text-gray-600">{craft.tagline}</p>
         </div>
 
-        <div className="flex items-end gap-3">
+        {/* <div className="flex items-end gap-3">
           <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-2">
             Purchase Link
             <ExternalLink className="w-4 h-4" />
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div

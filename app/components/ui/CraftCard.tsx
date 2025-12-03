@@ -18,7 +18,7 @@ export function CraftCard({ craft }: CraftCardProps) {
         style={{ boxShadow: CARD_SHADOW }}
       >
         <div className="relative aspect-square bg-card overflow-hidden flex items-center justify-center p-12">
-          <div className="relative w-full h-full transition-transform duration-200 ease motion-safe:group-hover:-translate-y-[0.2rem]">
+          <div className="relative w-full h-full transition-transform duration-200 ease motion-safe:group-hover:scale-103">
             <Image
               src={craft.image}
               alt={craft.name}

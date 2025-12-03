@@ -10,30 +10,28 @@ interface RelatedCraftCardProps {
 
 export function RelatedCraftCard({ craft }: RelatedCraftCardProps) {
   return (
-    <div
-      className="cursor-pointer group bg-card rounded-2xl overflow-hidden"
-      style={{ boxShadow: CARD_SHADOW }}
-    >
-      <div className="aspect-square bg-card relative">
-        <Image
-          src={craft.image}
-          alt={craft.name}
-          fill
-          className="object-contain p-8"
-        />
-      </div>
-      <div className="p-4">
-        <div className="mb-2">
-          <p className="text-xs text-gray-500 mb-1">
-            {craft.maker} · {craft.category}
-          </p>
-          <h3 className="text-sm font-medium text-black">
-            {craft.name}
-          </h3>
-          <p className="text-xs text-gray-600 mt-1">
-            {craft.description}
-          </p>
+    <div className="group mb-8">
+      <div
+        className="cursor-pointer bg-card rounded-2xl overflow-hidden"
+        style={{ boxShadow: CARD_SHADOW }}
+      >
+        <div className="relative aspect-square bg-card overflow-hidden flex items-center justify-center p-12">
+          <div className="relative w-full h-full transition-transform duration-200 ease motion-safe:group-hover:scale-103">
+            <Image
+              src={craft.image}
+              alt={craft.name}
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
+      </div>
+      <div className="p-3 text-left">
+        <p className="text-xs text-gray-500 mb-1">
+          {craft.maker} · {craft.category}
+        </p>
+        <h3 className="text-sm font-medium text-black">{craft.name}</h3>
+        <p className="text-xs text-gray-600 mt-1">{craft.description}</p>
       </div>
     </div>
   );
