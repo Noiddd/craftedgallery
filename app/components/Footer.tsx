@@ -12,7 +12,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="text-white pt-16 pb-40" style={{ backgroundColor: '#1a1614' }}>
+    <footer
+      className="text-white pt-16 pb-40"
+      style={{ backgroundColor: "#1a1614" }}
+    >
       <div className="max-w-[1800px] mx-auto px-8 py-16">
         <div className="flex flex-col gap-12 lg:gap-16">
           {/* Top Section - Centered */}
@@ -47,9 +50,13 @@ export default function Footer() {
                   <button
                     type="submit"
                     className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 text-white rounded-full transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-sm font-medium"
-                    style={{ backgroundColor: '#1a1614' }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#2d2421'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1a1614'}
+                    style={{ backgroundColor: "#1a1614" }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#2d2421")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#1a1614")
+                    }
                   >
                     Subscribe
                   </button>
@@ -65,19 +72,6 @@ export default function Footer() {
               className="flex items-center gap-2 group text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
             >
               <span>About</span>
-              <svg
-                className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
             </Link>
 
             <Link

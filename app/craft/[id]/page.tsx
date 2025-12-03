@@ -30,7 +30,7 @@ export default function CraftDetail() {
         <HeroSection craft={craft} />
       </section>
 
-      <section id="story" className="max-w-[1800px] mx-auto px-8 py-12">
+      <section id="story" className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">
         <div className="max-w-6xl mx-auto">
           <AboutSection
             description={craft.description}
@@ -41,7 +41,7 @@ export default function CraftDetail() {
         </div>
       </section>
 
-      <section id="others" className="max-w-[1800px] mx-auto px-8 pb-32">
+      <section id="others" className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 pb-24 sm:pb-28 md:pb-32">
         <RelatedCraftsSection />
       </section>
 

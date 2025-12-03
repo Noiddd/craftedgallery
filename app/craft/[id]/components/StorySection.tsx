@@ -10,7 +10,7 @@ interface StorySectionProps {
 export function StorySection({ title, paragraphs }: StorySectionProps) {
   return (
     <div
-      className="relative text-white rounded-2xl p-10 md:p-16 overflow-hidden"
+      className="relative text-white rounded-2xl p-6 sm:p-8 md:p-12 lg:p-16 overflow-hidden"
       style={{
         boxShadow: CARD_SHADOW,
         background:
@@ -146,8 +146,8 @@ export function StorySection({ title, paragraphs }: StorySectionProps) {
       `}</style>
 
       <div className="relative z-10">
-        <h2 className="text-2xl font-cormorant font-medium mb-6">{title}</h2>
-        <div className="space-y-4 text-gray-200 leading-relaxed">
+        <h2 className="text-xl sm:text-2xl font-cormorant font-medium mb-4 sm:mb-6">{title}</h2>
+        <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-200 leading-relaxed">
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}

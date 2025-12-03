@@ -40,8 +40,8 @@ export function CraftGrid({ items, selectedFilters }: CraftGridProps) {
   }
 
   return (
-    <section className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <section className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 pb-24 sm:pb-32 pt-4 sm:pt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
         {filteredItems.map((item) => (
           <CraftCard key={item.id} craft={item} />
         ))}

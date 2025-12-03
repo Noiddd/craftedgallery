@@ -77,8 +77,8 @@ export function ExploreToolbar({
   const activeFilterCount = categoryFilters.length;
 
   return (
-    <div className="fixed bottom-4 sm:bottom-6 left-0 right-0 z-50 flex justify-center items-center px-4 sm:px-6 lg:px-8">
-      <div ref={toolbarRef} className="relative flex items-center gap-2">
+    <div className="fixed bottom-3 sm:bottom-4 md:bottom-6 left-0 right-0 z-50 flex justify-center items-center px-3 sm:px-4 md:px-6 lg:px-8">
+      <div ref={toolbarRef} className="relative flex items-center gap-1.5 sm:gap-2">
         <motion.div
           initial={false}
           animate={{
@@ -96,8 +96,8 @@ export function ExploreToolbar({
               backgroundSize: "200px 200px",
             }}
           />
-          <div className="relative p-3 max-h-[50vh] overflow-y-auto">
-            <div className="flex items-center justify-between mb-2 px-2">
+          <div className="relative p-2 sm:p-3 max-h-[60vh] sm:max-h-[50vh] overflow-y-auto">
+            <div className="flex items-center justify-between mb-2 px-1 sm:px-2">
               <div className="text-xs font-medium text-black/40">
                 Filter by category
               </div>
@@ -113,14 +113,14 @@ export function ExploreToolbar({
                 </button>
               )}
             </div>
-            <div className="space-y-1">
+            <div className="space-y-0.5 sm:space-y-1">
               {FILTER_CATEGORIES.map((category) => {
                 const isSelected = categoryFilters.includes(category);
                 return (
                   <button
                     key={category}
                     onClick={() => toggleFilter(category)}
-                    className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-colors hover:bg-white/50 text-black"
+                    className="w-full flex items-center justify-between px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl transition-colors hover:bg-white/50 text-black text-sm"
                   >
                     <span>{category}</span>
                     {isSelected && (
@@ -144,7 +144,7 @@ export function ExploreToolbar({
           active={isExpanded}
           count={activeFilterCount}
         />
-        <FloatingToolbar className="px-2 py-2 flex items-center gap-1.5 sm:gap-2 overflow-x-auto max-w-full">
+        <FloatingToolbar className="px-1.5 sm:px-2 py-1.5 sm:py-2 flex items-center gap-1 sm:gap-1.5 md:gap-2">
           {categories.map((category) => (
             <ToolbarButton
               key={category}

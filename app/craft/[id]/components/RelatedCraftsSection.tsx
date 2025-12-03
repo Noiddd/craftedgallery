@@ -44,10 +44,10 @@ const relatedCrafts = [
 export function RelatedCraftsSection() {
   return (
     <div>
-      <h2 className="text-3xl font-cormorant font-medium text-black mb-8">
+      <h2 className="text-2xl sm:text-3xl font-cormorant font-medium text-black mb-6 sm:mb-8">
         Others also considered
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         {relatedCrafts.map((craft, index) => (
           <RelatedCraftCard key={index} craft={craft} />
         ))}
