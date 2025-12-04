@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer
       className="text-white pt-16 pb-40"
-      style={{ backgroundColor: "#1a1614" }}
+      style={{ backgroundColor: "#2c1810" }}
     >
       <div className="max-w-[1800px] mx-auto px-8 py-16">
         <div className="flex flex-col gap-12 lg:gap-16">
@@ -49,14 +49,7 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 text-white rounded-full transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-sm font-medium"
-                    style={{ backgroundColor: "#1a1614" }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#2d2421")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#1a1614")
-                    }
+                    className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 text-[#2c1810] rounded-full transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-sm font-medium hover:bg-[#2c1810] hover:text-white"
                   >
                     Subscribe
                   </button>

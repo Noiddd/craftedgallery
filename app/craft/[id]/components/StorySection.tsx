@@ -14,7 +14,7 @@ export function StorySection({ title, paragraphs }: StorySectionProps) {
       style={{
         boxShadow: CARD_SHADOW,
         background:
-          "radial-gradient(ellipse 1000px 800px at 50% 0%, rgba(70, 70, 70, 0.5), transparent 68%), #000000",
+          "radial-gradient(ellipse 1000px 800px at 50% 0%, rgba(50, 50, 50, 0.5), transparent 68%), #000000",
       }}
     >
       {/* Floating dust particles - Layer 1 */}
@@ -146,7 +146,9 @@ export function StorySection({ title, paragraphs }: StorySectionProps) {
       `}</style>
 
       <div className="relative z-10">
-        <h2 className="text-xl sm:text-2xl font-cormorant font-medium mb-4 sm:mb-6">{title}</h2>
+        <h2 className="text-xl sm:text-2xl font-cormorant font-medium mb-4 sm:mb-6">
+          {title}
+        </h2>
         <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-200 leading-relaxed">
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
