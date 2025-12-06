@@ -1,8 +1,8 @@
 "use client";
 
-import Image from 'next/image';
-import { RelatedCraft } from '@/lib/types';
-import { CARD_SHADOW } from '@/lib/constants/styles';
+import Image from "next/image";
+import { RelatedCraft } from "@/lib/types";
+import { CARD_SHADOW } from "@/lib/constants/styles";
 
 interface RelatedCraftCardProps {
   craft: RelatedCraft;
@@ -31,7 +31,9 @@ export function RelatedCraftCard({ craft }: RelatedCraftCardProps) {
           {craft.maker} · {craft.category}
         </p>
         <h3 className="text-sm font-medium text-black">{craft.name}</h3>
-        <p className="text-xs text-gray-600 mt-1 line-clamp-2">{craft.description}</p>
+        <p className="text-xs text-gray-600 mt-1 line-clamp-2">
+          {craft.description}
+        </p>
       </div>
     </div>
   );

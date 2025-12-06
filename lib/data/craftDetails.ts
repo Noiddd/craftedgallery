@@ -11,9 +11,9 @@ export const craftDetails: Record<number, CraftDetail> = {
     isStaffPick: true,
     tagline: "The only watch certified by NASA for EVA missions",
     description:
-      "The Speedmaster Professional is the only timepiece certified by NASA for extravehicular activity. After surviving brutal qualification tests that destroyed every competing watch—heating to 93°C, cooling to -18°C, extreme pressure changes, and violent impacts—it earned its place on every crewed space mission since 1965.",
+      "The Speedmaster Professional is the only timepiece certified by NASA for extravehicular activity. After surviving brutal qualification tests that destroyed every competing watch—heating to 93°C, cooling to -18°C, extreme pressure changes, and violent impacts—this NASA-Qualified Engineering earned its place on every crewed space mission since 1965.",
     longDescription:
-      "While other manufacturers pursued automation and modern materials, Omega made deliberate choices for mission-critical reliability. The manual-wind movement operates flawlessly in temperature extremes where automatics fail. The Hesalite crystal was chosen over scratch-resistant sapphire because it shatters into rounded pieces instead of dangerous shards in zero gravity. Even the chronograph pusher resistance was precisely calculated to function with pressurized EVA gloves.",
+      "While other manufacturers pursued automation and modern materials, Omega made Mission-Critical Material Choices for reliability. The Manual Wind Reliability operates flawlessly in temperature extremes where automatics fail. The Hesalite crystal was chosen over scratch-resistant sapphire because it shatters into rounded pieces instead of dangerous shards in zero gravity. The core design remains Unchanged Since 1968 because it achieved mission-critical specifications—even the chronograph pusher resistance was precisely calculated to function with pressurized EVA gloves.",
     craftedWith: [
       {
         title: "NASA-Qualified Engineering",
@@ -62,8 +62,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Hand-stitched precision that improves with every use",
-    description: "Hand-stitched at 4mm intervals using 12-strand twisted thread",
-    longDescription: "Each notebook is assembled by hand using traditional saddle-stitch binding. The 12-strand twisted thread provides exceptional strength while maintaining flexibility. The vegetable-tanned leather develops a unique patina over time.",
+    description: "Hand-stitched at 4mm intervals using 12-Strand Thread that provides exceptional strength while maintaining flexibility.",
+    longDescription: "Each notebook is assembled by hand using traditional Saddle-Stitch Binding. The 12-Strand Thread provides exceptional strength while maintaining flexibility. The vegetable-tanned leather develops a unique patina over time.",
     craftedWith: [
       { title: "Saddle-Stitch Binding", description: "Traditional hand-stitching method provides durability and allows the notebook to lay completely flat." },
       { title: "12-Strand Thread", description: "Twisted waxed thread creates strong, lasting seams that won't unravel over time." },
@@ -80,8 +80,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Precision-engineered for flawless keystrokes",
-    description: "Each switch tested 10 million times, 0.05mm tolerance",
-    longDescription: "CNC-machined aluminum case houses custom switches tested to 10 million actuations. Every component is manufactured to aerospace tolerances for perfect consistency.",
+    description: "Built with Custom Switches tested 10 million times and housed in a CNC Aluminum Case with 0.05mm tolerance.",
+    longDescription: "The CNC Aluminum Case is machined from solid aluminum with 0.05mm tolerance for perfect key alignment. Custom Switches are tested to 10 million actuations before assembly. Every component is manufactured to aerospace tolerances for perfect consistency.",
     craftedWith: [
       { title: "Custom Switches", description: "Each switch tested 10 million times before assembly, ensuring decades of reliable use." },
       { title: "CNC Aluminum Case", description: "Machined from solid aluminum block with 0.05mm tolerance for perfect key alignment." },
@@ -98,8 +98,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: true,
     tagline: "Woven on a 1947 loom using single-farm wool",
-    description: "Woven on 1947 loom using single-farm highland wool",
-    longDescription: "This throw is woven on a vintage 1947 dobby loom using wool sourced from a single highland farm in Scotland. The traditional weaving technique creates a durable fabric that will last generations.",
+    description: "Woven on a Vintage Loom using Single-Farm Wool from the Scottish highlands.",
+    longDescription: "This throw is woven on a Vintage Loom from 1947 that produces unique texture impossible to replicate with modern machinery. Single-Farm Wool from a highland farm in Scotland ensures consistent quality and supports sustainable farming. The traditional weaving technique creates a durable fabric that will last generations.",
     craftedWith: [
       { title: "Vintage Loom", description: "Woven on a 1947 dobby loom that produces unique texture impossible to replicate with modern machinery." },
       { title: "Single-Farm Wool", description: "Highland wool from one farm in Scotland ensures consistent quality and supports sustainable farming." },
@@ -116,8 +116,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Canvas aged 18 months, leather tanned 90 days",
-    description: "Canvas aged 18 months, leather tanned 90 days",
-    longDescription: "The canvas is aged for 18 months to achieve the perfect texture and durability. Leather straps are vegetable-tanned for 90 days using traditional methods. Every bag is assembled by hand with brass hardware.",
+    description: "Built with Aged Canvas weathered for 18 months and Vegetable-Tanned Leather straps cured for 90 days.",
+    longDescription: "The Aged Canvas undergoes an 18-month aging process to achieve the perfect texture and durability that improves with use. Vegetable-Tanned Leather straps are cured for 90 days using traditional methods that produce leather aging beautifully over decades. Every bag is assembled by hand with brass hardware.",
     craftedWith: [
       { title: "Aged Canvas", description: "18-month aging process creates a durable, weathered canvas that improves with use." },
       { title: "Vegetable-Tanned Leather", description: "90-day tanning process produces leather that ages beautifully over decades." },
@@ -134,8 +134,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: true,
     tagline: "Walnut aged 3 years, drivers tuned across 500 points",
-    description: "Walnut aged 3 years, drivers tuned 500 points",
-    longDescription: "Each pair uses walnut aged for 3 years to achieve optimal acoustic properties. Custom 40mm drivers are hand-tuned across 500 frequency points by audio engineers. The result is natural, balanced sound reproduction.",
+    description: "Crafted with Aged Walnut Cups weathered for 3 years and Hand-Tuned Drivers calibrated across 500 frequency points.",
+    longDescription: "Each pair uses Aged Walnut Cups aged for 3 years to achieve optimal acoustic properties and natural resonance. Custom 40mm Hand-Tuned Drivers are individually tuned across 500 frequency points by audio engineers for balanced response. The result is natural, balanced sound reproduction.",
     craftedWith: [
       { title: "Aged Walnut Cups", description: "3-year aged walnut provides natural resonance and damping for accurate sound reproduction." },
       { title: "Hand-Tuned Drivers", description: "Each driver individually tuned across 500 frequency points for balanced response." },
@@ -152,8 +152,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Quarter-sawn oak, hand-planed to 0.1mm precision",
-    description: "Quarter-sawn oak, hand-planed to 0.1mm precision",
-    longDescription: "Crafted from quarter-sawn white oak using traditional woodworking techniques. Each piece is hand-planed to ensure surfaces are flat within 0.1mm. Finished with natural oil that enhances the wood grain.",
+    description: "Built from Quarter-Sawn Oak with a Hand-Planed Surface flat within 0.1mm precision.",
+    longDescription: "Crafted from Quarter-Sawn Oak using traditional woodworking techniques that provide superior stability and reveal beautiful ray fleck grain. Each Hand-Planed Surface is meticulously planed to ensure flatness within 0.1mm for seamless joinery. Finished with natural oil that enhances the wood grain.",
     craftedWith: [
       { title: "Quarter-Sawn Oak", description: "Quarter-sawn cut provides superior stability and reveals beautiful ray fleck grain pattern." },
       { title: "Hand-Planed Surface", description: "Each surface hand-planed to 0.1mm flatness for seamless joinery." },
@@ -170,8 +170,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: true,
     tagline: "CNC machined from solid titanium in 48 hours",
-    description: "CNC machined from solid titanium, 48-hour production",
-    longDescription: "Each pen is CNC-machined from a solid bar of Grade 5 titanium. The 48-hour machining process ensures perfect balance and threading. The titanium develops a unique patina over time while remaining lightweight and incredibly durable.",
+    description: "Machined from Grade 5 Titanium through a precision 48-Hour Machining process.",
+    longDescription: "Each pen is CNC-machined from a solid bar of Grade 5 Titanium that provides exceptional strength-to-weight ratio. The 48-Hour Machining process ensures perfect balance and threading through multi-axis CNC precision. The titanium develops a unique patina over time while remaining lightweight and incredibly durable.",
     craftedWith: [
       { title: "Grade 5 Titanium", description: "Aerospace-grade titanium provides exceptional strength-to-weight ratio and corrosion resistance." },
       { title: "48-Hour Machining", description: "Multi-axis CNC machining creates perfect threads and balance." },
@@ -188,8 +188,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Double-shot molded, 72-hour cure time",
-    description: "Double-shot molded, UV-stable dye, 72-hour cure time",
-    longDescription: "Each keycap is double-shot molded to ensure legends never fade. UV-stable dyes maintain color vibrancy even after years of use. The 72-hour curing process creates exceptionally durable PBT plastic.",
+    description: "Created with Double-Shot Molding technique and UV-Stable Dyes that maintain vibrancy after years of use.",
+    longDescription: "Each keycap uses Double-Shot Molding to ensure legends never fade—the two-layer process embeds legends into the keycap so they never wear off. UV-Stable Dyes maintain color vibrancy even after years of constant use, resisting yellowing even under UV exposure. The 72-hour curing process creates exceptionally durable PBT plastic.",
     craftedWith: [
       { title: "Double-Shot Molding", description: "Two-layer molding process embeds legends into the keycap so they never wear off." },
       { title: "UV-Stable Dyes", description: "Special dyes resist yellowing and fading even under constant UV exposure." },
@@ -206,8 +206,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Belgian flax, stone-washed 14 days",
-    description: "Belgian flax, stone-washed 14 days for perfect drape",
-    longDescription: "Woven from Belgian flax linen and stone-washed for 14 days to achieve the perfect soft drape. The fabric becomes softer with each wash while maintaining its structure and durability.",
+    description: "Woven from Belgian Flax and Stone-Washed for 14 days to achieve perfect drape.",
+    longDescription: "Woven from Belgian Flax that provides the finest quality linen fibers. Stone-Washed for 14 days to achieve the perfect soft drape and exceptional softness. The fabric becomes softer with each wash while maintaining its structure and durability.",
     craftedWith: [
       { title: "Belgian Flax", description: "Premium flax from Belgium provides the finest quality linen fibers." },
       { title: "Stone-Washed", description: "14-day stone-washing process creates exceptional softness and drape." },
@@ -224,8 +224,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: true,
     tagline: "Hand-waxed canvas with copper rivets",
-    description: "Hand-waxed canvas, reinforced with copper rivets",
-    longDescription: "Heavy-duty canvas is hand-waxed to create a water-resistant finish that develops character over time. Copper rivets reinforce stress points for exceptional durability. Slim profile carries essentials without bulk.",
+    description: "Built with Hand-Waxed Canvas and reinforced with solid Copper Rivets for exceptional durability.",
+    longDescription: "Heavy-duty Hand-Waxed Canvas is treated with natural wax to create a water-resistant finish that develops character over time. Copper Rivets reinforce stress points and corners for lasting strength. Slim profile carries essentials without bulk.",
     craftedWith: [
       { title: "Hand-Waxed Canvas", description: "Canvas is hand-treated with natural wax for water resistance and durability." },
       { title: "Copper Rivets", description: "Solid copper rivets reinforce corners and stress points for lasting strength." },
@@ -242,8 +242,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Aramid fiber, tested 25,000 bend cycles",
-    description: "Braided aramid fiber, tested 25,000 bend cycles",
-    longDescription: "Braided with aramid fiber (the same material used in bulletproof vests) for exceptional durability. Each cable is tested for 25,000 bend cycles before shipping. Supports 100W power delivery and 40Gbps data transfer.",
+    description: "Reinforced with Aramid Fiber Braiding and tested through 25,000 Bend Tests for unmatched durability.",
+    longDescription: "Braided with Aramid Fiber Braiding (the same material used in bulletproof vests) that provides five-times the strength of steel by weight. Each cable design undergoes 25,000 Bend Tests before shipping to ensure longevity. Supports 100W power delivery and 40Gbps data transfer.",
     craftedWith: [
       { title: "Aramid Fiber Braiding", description: "Five-times stronger than steel by weight, providing unmatched durability." },
       { title: "25,000 Bend Tests", description: "Every cable design tested to 25,000 bend cycles to ensure longevity." },
@@ -260,8 +260,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: true,
     tagline: "Sand-cast iron with hand-finished patina",
-    description: "Sand-cast iron, hand-finished with natural patina",
-    longDescription: "Each planter is sand-cast using traditional foundry techniques, creating unique surface texture. The cast iron is hand-finished to develop a natural patina that deepens over time. Drainage hole ensures healthy plant growth.",
+    description: "Created with traditional Sand Casting and a Hand-Finished Patina that deepens over time.",
+    longDescription: "Each planter is created using Sand Casting with traditional foundry techniques, creating unique surface texture and character in each piece. The cast iron is given a Hand-Finished Patina, individually treated to develop rich, natural color that deepens over time. Drainage hole ensures healthy plant growth.",
     craftedWith: [
       { title: "Sand Casting", description: "Traditional sand-casting method creates unique texture and character in each piece." },
       { title: "Hand-Finished Patina", description: "Each planter individually treated to develop rich, natural patina." },
@@ -278,8 +278,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: false,
     tagline: "Vegetable-tanned leather that ages naturally",
-    description: "Vegetable-tanned leather, ages naturally over years",
-    longDescription: "Crafted from vegetable-tanned leather that develops a rich patina over years of use. Minimalist design holds up to 8 keys while eliminating bulk and jingle. Hand-stitched construction ensures durability.",
+    description: "Crafted from Vegetable-Tanned Leather with Hand-Stitched construction that ages naturally over years.",
+    longDescription: "Crafted from Vegetable-Tanned Leather through a chemical-free tanning process that creates leather aging beautifully over decades. Minimalist design holds up to 8 keys while eliminating bulk and jingle. Hand-Stitched construction using saddle-stitch provides strength and allows for easy repair if needed.",
     craftedWith: [
       { title: "Vegetable-Tanned Leather", description: "Chemical-free tanning process creates leather that ages beautifully over decades." },
       { title: "Hand-Stitched", description: "Saddle-stitch construction provides strength and allows for easy repair if needed." },
@@ -296,8 +296,8 @@ export const craftDetails: Record<number, CraftDetail> = {
     image: "/Gemini_Generated_Image_rvc40wrvc40wrvc4.png",
     isStaffPick: true,
     tagline: "Aluminum chassis, switches rated 50M clicks",
-    description: "Aluminum chassis, custom switches rated 50M clicks",
-    longDescription: "CNC-machined aluminum chassis provides the perfect weight and balance for precision work. Custom mechanical switches are rated for 50 million clicks. Sensor tracks at 1600 DPI with zero acceleration.",
+    description: "Built with a CNC Aluminum Chassis and 50M Click Switches rated for 50 million actuations.",
+    longDescription: "The CNC Aluminum Chassis is machined from solid aluminum to provide optimal weight distribution and durability for precision work. 50M Click Switches are custom mechanical switches rated for 50 million actuations with consistent tactile feedback. Sensor tracks at 1600 DPI with zero acceleration.",
     craftedWith: [
       { title: "CNC Aluminum Chassis", description: "Machined from solid aluminum for optimal weight distribution and durability." },
       { title: "50M Click Switches", description: "Custom mechanical switches rated for 50 million actuations with consistent tactile feedback." },

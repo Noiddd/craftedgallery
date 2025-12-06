@@ -1,6 +1,6 @@
 "use client";
 
-import { RelatedCraftCard } from '@/app/components/ui/RelatedCraftCard';
+import { RelatedCraftCard } from "@/app/components/ui/RelatedCraftCard";
 
 const relatedCrafts = [
   {
@@ -30,24 +30,15 @@ const relatedCrafts = [
     price: 6500,
     image: "/Gemini_Generated_Image_ibnox9ibnox9ibno.png",
   },
-  {
-    name: "El Primero",
-    maker: "Zenith",
-    category: "Timepiece",
-    tagline: "First automatic chronograph movement",
-    description: "36,000 beats per hour. Ten times more precise.",
-    price: 7200,
-    image: "/Gemini_Generated_Image_u9pme2u9pme2u9pm.png",
-  },
 ];
 
 export function RelatedCraftsSection() {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <h2 className="text-2xl sm:text-3xl font-cormorant font-medium text-black mb-6 sm:mb-8">
         Others also considered
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {relatedCrafts.map((craft, index) => (
           <RelatedCraftCard key={index} craft={craft} />
         ))}
