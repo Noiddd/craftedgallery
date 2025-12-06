@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ craft }: HeroSectionProps) {
   return (
-    <section className="max-w-7xl mx-auto pt-4 sm:pt-6 md:pt-8">
+    <section className="max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 mb-4 sm:mb-6">
         <div className="flex-1">
           <p className="text-xs sm:text-sm text-gray-500 mb-2">

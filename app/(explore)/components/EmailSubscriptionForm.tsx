@@ -15,15 +15,16 @@ export function EmailSubscriptionForm() {
       <div className="relative">
         <input
           type="email"
+          id="footer-email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
-          className="w-full px-4 py-3 pr-24 sm:pr-32 bg-card border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm"
+          placeholder="Add your email address"
+          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 pr-24 sm:pr-32 bg-card border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-sm"
           required
         />
         <button
           type="submit"
-          className="absolute right-1 top-1 bottom-1 px-4 sm:px-6 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium"
+          className="absolute right-1 top-1 bottom-1 px-3 sm:px-4 text-black rounded-full text-xs sm:text-sm font-medium hover:cursor-pointer"
         >
           Subscribe
         </button>

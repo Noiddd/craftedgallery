@@ -41,7 +41,10 @@ export default function CraftDetail() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: BG_COLOR }}>
+    <div
+      className="min-h-screen pb-24 sm:pb-32"
+      style={{ backgroundColor: BG_COLOR }}
+    >
       <section
         id="overview"
         className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8"

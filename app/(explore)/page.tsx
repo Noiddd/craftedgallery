@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: BG_COLOR }}>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <CraftGrid items={craftItems} selectedFilters={selectedFilters} />
       <ExploreToolbar
         categories={categories}

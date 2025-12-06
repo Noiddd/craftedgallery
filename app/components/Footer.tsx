@@ -43,13 +43,13 @@ export default function Footer() {
                     id="footer-email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="example@domain.com"
+                    placeholder="Add your email address"
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 pr-24 sm:pr-32 bg-card border border-gray-300 text-black rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-sm"
                     required
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 bottom-1 px-3 sm:px-6 text-[#2c1810] rounded-full transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-xs sm:text-sm font-medium hover:bg-[#2c1810] hover:text-white"
+                    className="absolute right-1 top-1 bottom-1 px-3 sm:px-4 text-black rounded-full text-xs sm:text-sm font-medium hover:cursor-pointer"
                   >
                     Subscribe
                   </button>
