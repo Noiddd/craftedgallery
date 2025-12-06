@@ -23,10 +23,11 @@ export function HeroSection({ craft }: HeroSectionProps) {
           <p className="text-sm sm:text-base text-gray-600">{craft.tagline}</p>
         </div>
 
-        <div className="flex items-start sm:items-end gap-3">
-          <button className="px-4 sm:px-6 py-2.5 sm:py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-xs sm:text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+        {/* Desktop button - hidden on mobile */}
+        <div className="hidden sm:flex items-end gap-3">
+          <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center gap-2 whitespace-nowrap">
             Purchase Link
-            <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <ExternalLink className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -45,6 +46,12 @@ export function HeroSection({ craft }: HeroSectionProps) {
           />
         </div>
       </div>
+
+      {/* Mobile button - full width below image */}
+      <button className="sm:hidden w-full mt-4 px-4 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center justify-center gap-2">
+        Purchase Link
+        <ExternalLink className="w-4 h-4" />
+      </button>
     </section>
   );
 }
