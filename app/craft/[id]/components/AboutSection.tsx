@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { CraftedWithItem } from "@/lib/types";
 
 interface AboutSectionProps {
@@ -34,7 +35,7 @@ export function AboutSection({
     );
     const pattern = new RegExp(`\\b(${escapedTitles.join("|")})\\b`, "gi");
 
-    const parts: (string | JSX.Element)[] = [];
+    const parts: (string | React.ReactNode)[] = [];
     let lastIndex = 0;
     let match;
     let keyCounter = 0;
