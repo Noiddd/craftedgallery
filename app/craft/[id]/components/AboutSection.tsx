@@ -1,20 +1,74 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import { CraftedWithItem } from "@/lib/types";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 interface AboutSectionProps {
   description: string;
   longDescription: string;
   craftedWithItems: CraftedWithItem[];
-  onCraftedWithClick: (index: number) => void;
+}
+
+function MouseFollowTooltip({
+  children,
+  content,
+}: {
+  children: React.ReactNode;
+  content: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const triggerRef = useRef<HTMLSpanElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setPosition({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
+  };
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <span
+        ref={triggerRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        className="font-bold text-black cursor-help underline underline-offset-2 active:text-gray-600 transition-colors"
+      >
+        {children}
+      </span>
+      {isOpen && (
+        <div
+          className="fixed z-50 w-[320px] sm:w-[360px] px-5 py-4 bg-foreground text-background rounded-md text-sm leading-relaxed pointer-events-none text-left"
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            transform: "translate(-50%, calc(-100% - 12px))",
+          }}
+        >
+          {content}
+        </div>
+      )}
+    </>
+  );
 }
 
 export function AboutSection({
   description,
   longDescription,
   craftedWithItems,
-  onCraftedWithClick,
 }: AboutSectionProps) {
   const processText = (text: string) => {
     if (!text) return text;
@@ -52,14 +106,14 @@ export function AboutSection({
       const index = titleMap.get(matchedTitle.toLowerCase());
 
       if (index !== undefined) {
+        const item = craftedWithItems[index];
         parts.push(
-          <button
+          <MouseFollowTooltip
             key={`crafted-${index}-${keyCounter++}`}
-            onClick={() => onCraftedWithClick(index)}
-            className="font-bold text-black hover:text-gray-600 transition-colors duration-200 cursor-pointer underline decoration-dotted underline-offset-2"
+            content={item.description}
           >
             {matchedText}
-          </button>
+          </MouseFollowTooltip>
         );
       } else {
         parts.push(matchedText);
