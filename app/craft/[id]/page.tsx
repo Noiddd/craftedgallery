@@ -25,7 +25,7 @@ export default function CraftDetail() {
 
   return (
     <div
-      className="min-h-screen pt-10 pb-24 sm:pb-32"
+      className="min-h-screen pt-8 sm:pt-12 pb-24 sm:pb-32"
       style={{ backgroundColor: BG_COLOR }}
     >
       <section
