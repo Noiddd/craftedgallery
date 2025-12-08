@@ -173,8 +173,8 @@ export function AboutSection({
 
         {/* Description */}
         <div className="space-y-5 text-base sm:text-lg leading-relaxed">
-          <p className="text-gray-900">{processText(description)}</p>
-          <p className="text-gray-900">{processText(longDescription)}</p>
+          <div className="text-gray-900">{processText(description)}</div>
+          <div className="text-gray-900">{processText(longDescription)}</div>
         </div>
       </div>
     </div>
