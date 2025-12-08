@@ -148,12 +148,12 @@ export function AboutSection({
           <p className="text-md text-gray-500">{craft.name}</p>
         </div>
         {/* Title section */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-cormorant text-black mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-cormorant text-black mb-3 sm:mb-6 leading-tight">
           {craft.name}
         </h1>
 
         {/* Tagline - standalone on mobile, with Purchase button on tablet+ */}
-        <div className="sm:flex sm:items-start sm:justify-between sm:gap-4 mb-10 sm:pb-4 sm:border-b sm:border-gray-200">
+        <div className="sm:flex sm:items-start sm:justify-between sm:gap-4 mb-4 sm:pb-4 sm:border-b sm:border-gray-200">
           <p className="text-lg sm:text-xl font-cormorant text-gray-800 mb-6 sm:mb-0 sm:flex-1">
             {craft.tagline}
           </p>
