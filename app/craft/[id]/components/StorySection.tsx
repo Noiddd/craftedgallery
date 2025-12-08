@@ -13,7 +13,7 @@ export function StorySection({ title, paragraphs }: StorySectionProps) {
       </h2>
       <div className="space-y-5 text-base sm:text-lg leading-relaxed">
         {paragraphs.map((paragraph, index) => (
-          <p key={index} className="text-gray-700">
+          <p key={index} className="text-gray-900">
             {paragraph}
           </p>
         ))}
