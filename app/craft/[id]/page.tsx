@@ -36,7 +36,7 @@ export default function CraftDetail() {
         id="story"
         className="max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-16 md:py-20"
       >
-        <div className="mb-16 sm:mb-20 md:mb-20">
+        <div className="mb-14 sm:mb-16 md:mb-18">
           <AboutSection
             description={craft.description}
             longDescription={craft.longDescription}

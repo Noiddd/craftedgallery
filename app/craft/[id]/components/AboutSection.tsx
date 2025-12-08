@@ -157,7 +157,7 @@ export function AboutSection({
           <p className="text-lg sm:text-xl font-cormorant text-gray-800 mb-6 sm:mb-0 sm:flex-1">
             {craft.tagline}
           </p>
-          <button className="hidden sm:flex px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium items-center gap-2 shrink-0">
+          <button className="hover:cursor-pointer hidden sm:flex px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium items-center gap-2 shrink-0">
             Purchase
             <ExternalLink className="w-3.5 h-3.5" />
           </button>
