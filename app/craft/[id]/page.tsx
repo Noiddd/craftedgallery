@@ -25,35 +25,34 @@ export default function CraftDetail() {
 
   return (
     <div
-      className="min-h-screen pt-8 sm:pt-12 pb-24 sm:pb-32"
+      className="min-h-screen pb-24 sm:pb-32"
       style={{ backgroundColor: BG_COLOR }}
     >
-      <section
-        id="overview"
-        className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8"
-      >
+      <section id="overview">
         <HeroSection craft={craft} />
       </section>
 
       <section
         id="story"
-        className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-16 md:py-20"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10 sm:mb-12 md:mb-16">
-            <AboutSection
-              description={craft.description}
-              longDescription={craft.longDescription}
-              craftedWithItems={craft.craftedWith}
-            />
-          </div>
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <AboutSection
+            description={craft.description}
+            longDescription={craft.longDescription}
+            craftedWithItems={craft.craftedWith}
+            craft={craft}
+          />
+        </div>
+
+        <div className="border-t border-gray-200 pt-12 sm:pt-16">
           <StorySection {...craft.story} />
         </div>
       </section>
 
       <section
         id="others"
-        className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8"
+        className="max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-12"
       >
         <RelatedCraftsSection />
       </section>
