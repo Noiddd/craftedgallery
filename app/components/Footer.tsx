@@ -28,8 +28,8 @@ export default function Footer() {
             </div>
             {/* Tagline */}
             <p className="text-gray-300 text-xs md:text-sm max-w-2xl text-center px-4">
-              Stories and lessons of obsession, precision, and things built to
-              outlive us. Every week.
+              Discover obsession, precision, and things built to outlive us.
+              Every week.
             </p>
             {/* Email Subscription Form */}
             <div className="space-y-4 w-full px-4">
