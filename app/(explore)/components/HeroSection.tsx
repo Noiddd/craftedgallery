@@ -6,8 +6,7 @@ export function HeroSection() {
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-10 sm:pb-16 text-center">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-cormorant font-medium text-black mb-2 sm:mb-2 leading-tight tracking-tight">
-        Stories and Lessons <br className="hidden sm:inline" />
-        from the World's Finest Craft{" "}
+        Stories from the <br /> World's Finest Craft
       </h1>
       <p className="text-base sm:text-lg text-gray-600 mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
         Discover obsession, precision, and things built to outlive us. Every
