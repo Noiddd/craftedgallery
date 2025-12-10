@@ -153,7 +153,7 @@ export function AboutSection({
         </h1>
 
         {/* Tagline - standalone on mobile, with Purchase button on tablet+ */}
-        <div className="sm:flex sm:items-start sm:justify-between sm:gap-4 mb-4 sm:pb-4 sm:border-b sm:border-gray-200">
+        <div className="sm:flex sm:items-start sm:justify-between sm:gap-4 mb-4 sm:pb-4 sm:border-b sm:border-gray-300">
           <p className="text-lg sm:text-xl font-cormorant text-gray-800 mb-6 sm:mb-0 sm:flex-1">
             {craft.tagline}
           </p>
@@ -164,7 +164,7 @@ export function AboutSection({
         </div>
 
         {/* Purchase button - shown on mobile only, full width */}
-        <div className="sm:hidden mb-10 pb-6 border-b border-gray-200">
+        <div className="sm:hidden mb-10 pb-6 border-b border-gray-300">
           <button className="w-full px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center justify-center gap-2">
             Purchase
             <ExternalLink className="w-3.5 h-3.5" />

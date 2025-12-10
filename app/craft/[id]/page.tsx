@@ -34,7 +34,7 @@ export default function CraftDetail() {
 
       <section
         id="story"
-        className="max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-16 md:py-20"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-6 sm:py-10 md:py-14"
       >
         <div className="mb-14 sm:mb-16 md:mb-18">
           <AboutSection
@@ -45,7 +45,7 @@ export default function CraftDetail() {
           />
         </div>
 
-        <div className="border-t border-gray-200 pt-12 sm:pt-16">
+        <div className="border-t border-gray-300 pt-12 sm:pt-16">
           <StorySection {...craft.story} />
         </div>
       </section>
