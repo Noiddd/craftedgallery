@@ -8,6 +8,7 @@ import { ToolbarButton } from "@/app/components/ui/ToolbarButton";
 import { SearchButton } from "@/app/components/ui/SearchButton";
 import { FilterButton } from "@/app/components/ui/FilterButton";
 import { GRAIN_OVERLAY_SVG } from "@/lib/constants/grainOverlay";
+import { useCategories } from "@/lib/hooks/useCategories";
 
 interface ExploreToolbarProps {
   categories: readonly string[];
@@ -18,9 +19,6 @@ interface ExploreToolbarProps {
 const SHEET_SPRING = { type: "spring", damping: 25, stiffness: 300 } as const;
 const CHECK_SPRING = { type: "spring", damping: 20, stiffness: 400 } as const;
 
-// Category filter options (multi-select dropdown) - matches actual item categories
-const FILTER_CATEGORIES = ["Home", "Carry", "Tech"] as const;
-
 export function ExploreToolbar({
   categories,
   selectedFilters,
@@ -28,6 +26,10 @@ export function ExploreToolbar({
 }: ExploreToolbarProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const toolbarRef = useRef<HTMLDivElement>(null);
+  const { data: categoriesData, isLoading } = useCategories();
+
+  // Extract category names from the fetched data
+  const filterCategories = categoriesData?.map((cat) => cat.category) || [];
 
   // Close sheet when clicking outside
   useEffect(() => {
@@ -48,7 +50,7 @@ export function ExploreToolbar({
   // Separate toolbar filters from category filters
   const toolbarFilters = selectedFilters.filter((f) => categories.includes(f));
   const categoryFilters = selectedFilters.filter((f) =>
-    FILTER_CATEGORIES.includes(f as any)
+    filterCategories.includes(f)
   );
 
   const toggleFilter = (category: string) => {
@@ -114,27 +116,37 @@ export function ExploreToolbar({
               )}
             </div>
             <div className="space-y-0.5 sm:space-y-1">
-              {FILTER_CATEGORIES.map((category) => {
-                const isSelected = categoryFilters.includes(category);
-                return (
-                  <button
-                    key={category}
-                    onClick={() => toggleFilter(category)}
-                    className="w-full flex items-center justify-between px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl transition-colors hover:bg-white/50 text-black text-sm"
-                  >
-                    <span>{category}</span>
-                    {isSelected && (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={CHECK_SPRING}
-                      >
-                        <Check className="w-4 h-4" />
-                      </motion.div>
-                    )}
-                  </button>
-                );
-              })}
+              {isLoading ? (
+                <div className="text-center py-4 text-sm text-black/40">
+                  Loading categories...
+                </div>
+              ) : filterCategories.length === 0 ? (
+                <div className="text-center py-4 text-sm text-black/40">
+                  No categories available
+                </div>
+              ) : (
+                filterCategories.map((category) => {
+                  const isSelected = categoryFilters.includes(category);
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => toggleFilter(category)}
+                      className="w-full flex items-center justify-between px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl transition-colors hover:bg-white/50 text-black text-sm"
+                    >
+                      <span>{category}</span>
+                      {isSelected && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={CHECK_SPRING}
+                        >
+                          <Check className="w-4 h-4" />
+                        </motion.div>
+                      )}
+                    </button>
+                  );
+                })
+              )}
             </div>
           </div>
         </motion.div>

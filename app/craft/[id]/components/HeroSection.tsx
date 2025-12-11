@@ -16,13 +16,15 @@ export function HeroSection({ craft }: HeroSectionProps) {
         style={{ boxShadow: CARD_SHADOW }}
       >
         <div className="w-full aspect-video relative bg-card">
-          <Image
-            src={craft.image}
-            alt={craft.name}
-            fill
-            className="object-contain p-8 sm:p-16 md:p-20 lg:p-24"
-            priority
-          />
+          {craft.image_url && (
+            <Image
+              src={craft.image_url}
+              alt={craft.name}
+              fill
+              className="object-contain p-8 sm:p-16 md:p-20 lg:p-24"
+              priority
+            />
+          )}
         </div>
       </div>
     </section>

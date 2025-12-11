@@ -1,12 +1,29 @@
+// Tooltip interface
+export interface Tooltip {
+  word: string;
+  explanation: string;
+}
+
+// Raw data from Supabase
 export interface CraftItem {
-  id: number;
+  id: string;
   name: string;
   maker: string;
   category: string;
-  price: number;
-  image: string;
-  isStaffPick: boolean;
-  description: string;
+  image_url: string | null;
+  tagline: string;
+  description_1: string;
+  description_2: string | null;
+  description_3: string | null;
+  story_1: string;
+  story_2: string | null;
+  story_3: string | null;
+  story_title: string;
+  public: boolean;
+  purchase_link: string | null;
+  created_at: string;
+  country: string | null;
+  tooltips?: Tooltip[];
 }
 
 export interface CraftedWithItem {
@@ -29,11 +46,21 @@ export interface CraftStory {
   paragraphs: string[];
 }
 
-export interface CraftDetail extends CraftItem {
+// Extended detail view (transformed from CraftItem)
+export interface CraftDetail {
+  id: string;
+  name: string;
+  maker: string;
+  category: string;
+  image_url: string | null;
   tagline: string;
   description: string;
   longDescription: string;
   craftedWith: CraftedWithItem[];
   specs: Record<string, string>;
   story: CraftStory;
+  purchase_link: string | null;
+  created_at: string;
+  country: string | null;
+  tooltips: Tooltip[];
 }

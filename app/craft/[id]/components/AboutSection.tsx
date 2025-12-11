@@ -81,6 +81,7 @@ export function AboutSection({
 }: AboutSectionProps) {
   const processText = (text: string) => {
     if (!text) return text;
+    if (!craftedWithItems || craftedWithItems.length === 0) return text;
 
     // Create a map of lowercase titles to their indices
     const titleMap = new Map<string, number>();
@@ -157,19 +158,33 @@ export function AboutSection({
           <p className="text-lg sm:text-xl font-cormorant text-gray-800 mb-6 sm:mb-0 sm:flex-1">
             {craft.tagline}
           </p>
-          <button className="hover:cursor-pointer hidden sm:flex px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium items-center gap-2 shrink-0">
-            Purchase
-            <ExternalLink className="w-3.5 h-3.5" />
-          </button>
+          {craft.purchase_link && (
+            <a
+              href={craft.purchase_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:cursor-pointer hidden sm:flex px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium items-center gap-2 shrink-0"
+            >
+              Purchase
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          )}
         </div>
 
         {/* Purchase button - shown on mobile only, full width */}
-        <div className="sm:hidden mb-10 pb-6 border-b border-gray-300">
-          <button className="w-full px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center justify-center gap-2">
-            Purchase
-            <ExternalLink className="w-3.5 h-3.5" />
-          </button>
-        </div>
+        {craft.purchase_link && (
+          <div className="sm:hidden mb-10 pb-6 border-b border-gray-300">
+            <a
+              href={craft.purchase_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full px-5 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors text-sm font-medium flex items-center justify-center gap-2"
+            >
+              Purchase
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        )}
 
         {/* Description */}
         <div className="space-y-5 text-base sm:text-lg leading-relaxed">
