@@ -12,18 +12,13 @@ export interface CraftItem {
   category: string;
   image_url: string | null;
   tagline: string;
-  description_1: string;
-  description_2: string | null;
-  description_3: string | null;
-  story_1: string;
-  story_2: string | null;
-  story_3: string | null;
+  description: string[];
+  story: string[];
   story_title: string;
   public: boolean;
   purchase_link: string | null;
   created_at: string;
   country: string | null;
-  tooltips?: Tooltip[];
 }
 
 export interface CraftedWithItem {
@@ -46,7 +41,7 @@ export interface CraftStory {
   paragraphs: string[];
 }
 
-// Extended detail view (transformed from CraftItem)
+// Extended detail view (same as CraftItem for now - direct from database)
 export interface CraftDetail {
   id: string;
   name: string;
@@ -54,13 +49,9 @@ export interface CraftDetail {
   category: string;
   image_url: string | null;
   tagline: string;
-  description: string;
-  longDescription: string;
-  craftedWith: CraftedWithItem[];
-  specs: Record<string, string>;
+  description: string[];
   story: CraftStory;
   purchase_link: string | null;
   created_at: string;
   country: string | null;
-  tooltips: Tooltip[];
 }

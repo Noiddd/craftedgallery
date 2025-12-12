@@ -60,21 +60,21 @@ export default function Footer() {
 
           {/* Bottom Section - Navigation Links Spread Horizontally */}
           <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 px-4">
-            <Link
+            {/* <Link
               href="/about"
               className="flex items-center gap-2 group text-sm sm:text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
             >
               <span>About</span>
-            </Link>
+            </Link> */}
 
-            <Link
+            {/* <Link
               href="/contact"
               className="text-sm sm:text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
             >
               Contact us
-            </Link>
+            </Link> */}
 
-            <Link
+            {/* <Link
               href="/advertise"
               className="text-sm sm:text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
             >
@@ -86,7 +86,7 @@ export default function Footer() {
               className="text-sm sm:text-base hover:text-gray-300 transition-colors duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
             >
               Site map
-            </Link>
+            </Link> */}
           </nav>
         </div>
       </div>
