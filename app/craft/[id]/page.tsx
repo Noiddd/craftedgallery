@@ -68,7 +68,7 @@ export default function CraftDetail() {
         </div>
 
         <div className="border-t border-gray-300 pt-12 sm:pt-16">
-          <StorySection {...craft.story} />
+          <StorySection title={craft.story_title} blocks={craft.story} />
         </div>
       </section>
 

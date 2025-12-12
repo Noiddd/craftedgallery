@@ -3,6 +3,7 @@
 import React from "react";
 import { CraftDetail } from "@/lib/types";
 import { ExternalLink } from "lucide-react";
+import { ContentRenderer } from "@/app/components/shared/ContentRenderer";
 
 interface AboutSectionProps {
   craft: CraftDetail;
@@ -53,13 +54,7 @@ export function AboutSection({ craft }: AboutSectionProps) {
         )}
 
         {/* Description */}
-        <div className="space-y-5 text-base sm:text-lg leading-relaxed">
-          {craft.description.map((paragraph, index) => (
-            <div key={index} className="text-gray-900">
-              {paragraph}
-            </div>
-          ))}
-        </div>
+        <ContentRenderer blocks={craft.description} />
       </div>
     </div>
   );

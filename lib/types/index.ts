@@ -2,5 +2,6 @@ export type {
   CraftItem,
   CraftDetail,
   CraftedWithItem,
-  RelatedCraft
+  RelatedCraft,
+  ContentBlock
 } from './craft';
