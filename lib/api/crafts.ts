@@ -9,7 +9,6 @@ function transformToCraftDetail(item: CraftItem): CraftDetail {
     maker: item.maker,
     category: item.category,
     image_url: item.image_url,
-    tagline: item.tagline,
     description: item.description || [],
     story: item.story || [],
     story_title: item.story_title || "The Story",

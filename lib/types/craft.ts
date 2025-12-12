@@ -6,10 +6,10 @@ export interface Tooltip {
 
 // Content block types for rich descriptions
 export type ContentBlock =
-  | { type: 'paragraph'; content: string }
-  | { type: 'bulletList'; items: string[] }
-  | { type: 'heading'; content: string }
-  | { type: 'quote'; content: string };
+  | { type: "paragraph"; content: string }
+  | { type: "bulletList"; items: string[] }
+  | { type: "heading"; content: string }
+  | { type: "quote"; content: string };
 
 // Raw data from Supabase
 export interface CraftItem {
@@ -18,7 +18,6 @@ export interface CraftItem {
   maker: string;
   category: string;
   image_url: string | null;
-  tagline: string;
   description: ContentBlock[];
   story: ContentBlock[];
   story_title: string;
@@ -37,7 +36,6 @@ export interface RelatedCraft {
   name: string;
   maker: string;
   category: string;
-  tagline: string;
   description: string;
   price: number;
   image: string;
@@ -55,7 +53,6 @@ export interface CraftDetail {
   maker: string;
   category: string;
   image_url: string | null;
-  tagline: string;
   description: ContentBlock[];
   story: ContentBlock[];
   story_title: string;
