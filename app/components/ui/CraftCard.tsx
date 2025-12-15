@@ -36,7 +36,7 @@ export function CraftCard({ craft }: CraftCardProps) {
         </p>
         <h3 className="text-sm font-medium text-black">{craft.name}</h3>
         <p className="text-xs text-gray-600 mt-1 line-clamp-2">
-          {craft.story_title}
+          {craft.tagline}
         </p>
       </div>
     </div>

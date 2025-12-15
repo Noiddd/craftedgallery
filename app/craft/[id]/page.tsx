@@ -6,11 +6,10 @@ import { useCraft } from "@/lib/hooks/useCrafts";
 import { useSectionObserver } from "./components/hooks/useSectionObserver";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
-import { StorySection } from "./components/StorySection";
 import { RelatedCraftsSection } from "./components/RelatedCraftsSection";
 import { CraftDetailToolbar } from "./components/CraftDetailToolbar";
 
-const SECTIONS = ["Overview", "Story", "Others"];
+const SECTIONS = ["Overview", "About", "Others"];
 
 export default function CraftDetail() {
   const params = useParams();
@@ -60,15 +59,11 @@ export default function CraftDetail() {
       </section>
 
       <section
-        id="story"
+        id="about"
         className="max-w-4xl mx-auto px-6 sm:px-8 py-6 sm:py-10 md:py-14"
       >
         <div className="mb-14 sm:mb-16 md:mb-18">
           <AboutSection craft={craft} />
-        </div>
-
-        <div className="border-t border-gray-300 pt-12 sm:pt-16">
-          <StorySection title={craft.story_title} blocks={craft.story} />
         </div>
       </section>
 

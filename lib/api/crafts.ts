@@ -11,7 +11,7 @@ function transformToCraftDetail(item: CraftItem): CraftDetail {
     image_url: item.image_url,
     description: item.description || [],
     story: item.story || [],
-    story_title: item.story_title || "The Story",
+    tagline: item.tagline || "The Story",
     purchase_link: item.purchase_link,
     created_at: item.created_at,
     country: item.country,

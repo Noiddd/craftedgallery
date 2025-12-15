@@ -14,9 +14,13 @@ export function AboutSection({ craft }: AboutSectionProps) {
     <div className="relative">
       <div className="">
         {/* Title section */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-cormorant text-black mb-3 sm:mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-cormorant text-black mb-3 sm:mb-4 leading-tight">
           {craft.name}
         </h1>
+
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-cormorant text-black mb-3 sm:mb-6 font-medium">
+          {craft.tagline}
+        </h2>
 
         {/* Tagline - standalone on mobile, with Purchase button on tablet+ */}
         <div className="sm:flex sm:items-start sm:justify-between sm:gap-4 mb-4 sm:pb-4 sm:border-b sm:border-gray-300">
@@ -53,7 +57,6 @@ export function AboutSection({ craft }: AboutSectionProps) {
           </div>
         )}
 
-        {/* Description */}
         <ContentRenderer blocks={craft.description} />
       </div>
     </div>

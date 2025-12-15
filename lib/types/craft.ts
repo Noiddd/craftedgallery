@@ -20,7 +20,7 @@ export interface CraftItem {
   image_url: string | null;
   description: ContentBlock[];
   story: ContentBlock[];
-  story_title: string;
+  tagline: string;
   public: boolean;
   purchase_link: string | null;
   created_at: string;
@@ -55,7 +55,7 @@ export interface CraftDetail {
   image_url: string | null;
   description: ContentBlock[];
   story: ContentBlock[];
-  story_title: string;
+  tagline: string;
   purchase_link: string | null;
   created_at: string;
   country: string | null;
