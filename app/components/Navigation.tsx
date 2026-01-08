@@ -14,7 +14,7 @@ export default function Navigation() {
               href="/"
               className="text-xl font-semibold font-cormorant  text-black hover:text-gray-600 transition-colors"
             >
-              Crafted Gallery
+              Crafted
             </Link>
           </div>
 
