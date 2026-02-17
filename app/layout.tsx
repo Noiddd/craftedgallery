@@ -22,7 +22,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Crafted - Stories from the top of their craft",
+  title: "Crafted Gallery - Stories from the top of their craft",
   description:
     "Learn from individuals at the top of their craft. Stories from the top of their craft.",
 };

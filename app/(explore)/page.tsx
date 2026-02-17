@@ -14,10 +14,14 @@ export default function Home() {
   // Separate view filter from category filters
   const viewFilter = selectedFilters.includes("New") ? "new" : "all";
   const categoryFilters = selectedFilters.filter(
-    (f) => f !== "New" && f !== "All"
+    (f) => f !== "New" && f !== "All",
   );
 
-  const { data: crafts, isLoading, error } = useCrafts({
+  const {
+    data: crafts,
+    isLoading,
+    error,
+  } = useCrafts({
     categories: categoryFilters.length > 0 ? categoryFilters : undefined,
     view: viewFilter,
   });
@@ -49,11 +53,11 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: BG_COLOR }}>
       <HeroSection />
       <CraftGrid items={crafts || []} />
-      <ExploreToolbar
+      {/* <ExploreToolbar
         categories={categories}
         selectedFilters={selectedFilters}
         onFiltersChange={setSelectedFilters}
-      />
+      /> */}
     </div>
   );
 }
