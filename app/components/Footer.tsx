@@ -22,14 +22,14 @@ export default function Footer() {
           <div className="flex flex-col items-center space-y-3 md:space-y-4">
             {/* Logo and Heading */}
             <div className="space-y-2 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-cormorant font-light tracking-wide">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-cormorant font-bold tracking-wide">
                 CRAFTED GALLERY
               </h2>
             </div>
             {/* Tagline */}
             <p className="text-gray-300 text-xs md:text-sm max-w-2xl text-center px-4">
-              Discover obsession, precision, and things built to outlive us.
-              Every week.
+              Greatness has a story. Learn from individuals at the top of their
+              craft.
             </p>
             {/* Email Subscription Form */}
             <div className="space-y-4 w-full px-4">
