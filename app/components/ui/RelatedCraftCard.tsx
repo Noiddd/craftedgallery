@@ -28,7 +28,7 @@ export function RelatedCraftCard({ craft }: RelatedCraftCardProps) {
       </div>
       <div className="p-2 sm:p-3 text-left">
         <p className="text-xs text-gray-500 mb-1">
-          {craft.maker} · {craft.category}
+          {craft.category}
         </p>
         <h3 className="text-sm font-medium text-black">{craft.name}</h3>
         <p className="text-xs text-gray-600 mt-1 line-clamp-2">

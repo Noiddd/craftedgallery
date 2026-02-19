@@ -6,7 +6,6 @@ function transformToCraftDetail(item: CraftItem): CraftDetail {
   return {
     id: item.id,
     name: item.name,
-    maker: item.maker,
     category: item.category,
     image_url: item.image_url,
     description: item.description || [],

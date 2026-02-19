@@ -74,11 +74,11 @@ export default function CraftDetail() {
         <RelatedCraftsSection />
       </section> */}
 
-      <CraftDetailToolbar
+      {/* <CraftDetailToolbar
         sections={SECTIONS}
         selectedSection={selectedSection}
         onSectionClick={scrollToSection}
-      />
+      /> */}
     </div>
   );
 }

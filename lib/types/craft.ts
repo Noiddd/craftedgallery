@@ -15,7 +15,6 @@ export type ContentBlock =
 export interface CraftItem {
   id: string;
   name: string;
-  maker: string;
   category: string;
   image_url: string | null;
   description: ContentBlock[];
@@ -34,7 +33,6 @@ export interface CraftedWithItem {
 
 export interface RelatedCraft {
   name: string;
-  maker: string;
   category: string;
   description: string;
   price: number;
@@ -50,7 +48,6 @@ export interface CraftStory {
 export interface CraftDetail {
   id: string;
   name: string;
-  maker: string;
   category: string;
   image_url: string | null;
   description: ContentBlock[];

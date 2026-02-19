@@ -5,7 +5,6 @@ import { RelatedCraftCard } from "@/app/components/ui/RelatedCraftCard";
 const relatedCrafts = [
   {
     name: "Submariner",
-    maker: "Rolex",
     category: "Timepiece",
     tagline: "The dive watch that defined the category",
     description: "Unchanged case design since 1953. Depth before fashion.",
@@ -14,7 +13,6 @@ const relatedCrafts = [
   },
   {
     name: "Navitimer",
-    maker: "Breitling",
     category: "Timepiece",
     tagline: "The pilot's chronograph since 1952",
     description: "Slide rule calibrated for pilots. Function over decoration.",
@@ -23,7 +21,6 @@ const relatedCrafts = [
   },
   {
     name: "Monaco",
-    maker: "TAG Heuer",
     category: "Timepiece",
     tagline: "Square case, racing heritage",
     description: "Square when everyone went round. Racing demands precision.",

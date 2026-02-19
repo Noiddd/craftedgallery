@@ -21,7 +21,7 @@ export function HeroSection({ craft }: HeroSectionProps) {
               src={craft.image_url}
               alt={craft.name}
               fill
-              className="object-contain p-8 sm:p-16 md:p-20 lg:p-24"
+              className="object-cover"
               priority
             />
           )}
