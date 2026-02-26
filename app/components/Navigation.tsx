@@ -8,13 +8,13 @@ export default function Navigation() {
   const pathname = usePathname();
   return (
     <nav style={{ backgroundColor: BG_COLOR }}>
-      <div className="py-6 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-12">
+      <div className="py-2 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-4 sm:pt-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="shrink-0">
             <Link
               href="/"
-              className="text-2xl font-semibold font-cormorant  text-black hover:text-gray-600 transition-colors"
+              className="text-xl font-semibold font-cormorant  text-black hover:text-gray-600 transition-colors"
             >
               Crafted Gallery
             </Link>
