@@ -9,7 +9,8 @@ export function HeroSection() {
         Greatness has a story
       </h1>
       <p className="text-base sm:text-lg text-gray-600 mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-        Learn from individuals at the top of their craft.
+        Stories and lessons from individuals at the top of their craft. Every
+        week.
       </p>
       <EmailSubscriptionForm />
     </section>

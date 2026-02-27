@@ -1,7 +1,7 @@
 import { BG_COLOR } from "@/lib/constants/styles";
 
 export const metadata = {
-  title: "About — Crafted Gallery",
+  title: "About",
   description:
     "Crafted Gallery is a place to learn from individuals at the top of their craft.",
 };
