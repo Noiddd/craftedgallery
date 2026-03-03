@@ -20,30 +20,33 @@ export default function About() {
 
         {/* Opening */}
         <p className="font-cormorant text-5xl sm:text-6xl font-light leading-tight text-neutral-800 mb-12">
-          To anyone who's ever wondered what mastery really looks like
+          To anyone that still cares
         </p>
 
         {/* Body */}
         <div className="space-y-6 text-base sm:text-lg leading-relaxed text-neutral-600">
           <p>
-            Crafted Gallery is a gallery of individuals who have reached the top
-            of their craft.
+            Crafted Gallery is a collection of stories about individuals who
+            reached the top of what they do. In business, sport, art, and
+            beyond.
           </p>
 
           <p>
-            We find these individuals, entrepreneur, athletes, artists, writers,
-            builders and give their stories the space they deserve.
+            Individuals that values craft. Who cares deeply about doing things
+            well.
           </p>
 
           <p>
-            We tell their full story, not just the work, but the life that made
-            it possible.
+            We break down how they think, how they worked, and what it cost.
           </p>
 
-          <p>
-            Welcome to Crafted Gallery, where the life behind the work matters
-            as much as the work itself.
-          </p>
+          <p>Crafted Gallery exists to inspire you.</p>
+
+          <p>To inspire me.</p>
+
+          <p>And one day, to inspire my kids.</p>
+
+          <p>The world doesn’t need more noise. It needs music.</p>
         </div>
 
         {/* Signature */}
