@@ -24,6 +24,9 @@ export interface CraftItem {
   purchase_link: string | null;
   created_at: string;
   country: string | null;
+  youtube_link: string | null;
+  spotify_link: string | null;
+  applepodcast_link: string | null;
 }
 
 export interface CraftedWithItem {
@@ -56,4 +59,7 @@ export interface CraftDetail {
   purchase_link: string | null;
   created_at: string;
   country: string | null;
+  youtube_link: string | null;
+  spotify_link: string | null;
+  applepodcast_link: string | null;
 }

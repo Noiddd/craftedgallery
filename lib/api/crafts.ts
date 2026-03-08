@@ -14,6 +14,9 @@ function transformToCraftDetail(item: CraftItem): CraftDetail {
     purchase_link: item.purchase_link,
     created_at: item.created_at,
     country: item.country,
+    youtube_link: item.youtube_link,
+    spotify_link: item.spotify_link,
+    applepodcast_link: item.applepodcast_link,
   };
 }
 

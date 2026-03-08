@@ -44,7 +44,7 @@ export default function About() {
 
           <p>To inspire me.</p>
 
-          <p>And one day, to inspire my kids.</p>
+          {/* <p>And one day, to inspire my kids.</p> */}
 
           <p>The world doesn’t need more noise. It needs music.</p>
         </div>

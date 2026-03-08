@@ -54,8 +54,16 @@ const LINKS = [
     external: true,
   },
   { label: "X", href: "https://x.com/angdion_", external: true },
-  //{ label: "Spotify", href: "#", external: true },
-  //{ label: "Apple Podcasts", href: "#", external: true },
+  {
+    label: "Spotify",
+    href: "https://open.spotify.com/show/3TeCEeTHLMQoTMQkZCEtO0?si=qYjrVeV_RkC44ZnIHqxe2w",
+    external: true,
+  },
+  {
+    label: "Apple Podcasts",
+    href: "https://podcasts.apple.com/us/podcast/crafted-gallery/id1883455301",
+    external: true,
+  },
 ];
 
 function FitText({ children }: { children: string }) {
