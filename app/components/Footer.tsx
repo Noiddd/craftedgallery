@@ -134,7 +134,6 @@ export default function Footer() {
             </p>
             <h3 className="text-2xl md:text-3xl font-cormorant leading-snug">
               Stories and lessons from individuals at the top of their craft.
-              Every week.
             </h3>
             <form onSubmit={handleSubscribe} className="mt-1">
               <div className="relative">
