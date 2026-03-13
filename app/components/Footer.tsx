@@ -76,7 +76,7 @@ function FitText({ children }: { children: string }) {
       const text = textRef.current;
       if (!container || !text) return;
       text.style.fontSize = "100px";
-      const scale = (container.offsetWidth * 0.96) / text.scrollWidth;
+      const scale = (container.offsetWidth * 0.96) / text.getBoundingClientRect().width;
       text.style.fontSize = `${100 * scale}px`;
     };
     fit();
@@ -90,7 +90,7 @@ function FitText({ children }: { children: string }) {
       <h2
         ref={textRef}
         className="font-cormorant font-bold text-white/90 select-none whitespace-nowrap inline-block"
-        style={{ lineHeight: 0.88, letterSpacing: "-0.01em" }}
+        style={{ lineHeight: 0.88, letterSpacing: "0.08em" }}
       >
         {children}
       </h2>
@@ -201,7 +201,7 @@ export default function Footer() {
 
       {/* Big brand name */}
       <div className="mt-16 md:mt-24 -mb-[0.1em]">
-        <FitText>CRAFTED GALLERY</FitText>
+        <FitText>CRAFTED</FitText>
       </div>
     </footer>
   );
